@@ -8,8 +8,8 @@ cd ${DOTPATH}
 ln -sf ${DOTPATH}/.vimrc ${HOME}/.vimrc
 echo "symbolic link: ${HOME}/.vimrc -> ${DOTPATH}/.vimrc"
 
-ln -sf ${DOTPATH}/.bash_aliases ${HOME}/.bash_aliases
-echo "symbolic link: ${HOME}/.bash_aliases -> ${DOTPATH}/.bash_aliases"
+ln -sf ${DOTPATH}/.bash_profile ${HOME}/.bash_profile
+echo "symbolic link: ${HOME}/.bash_profile -> ${DOTPATH}/.bash_profile"
 
 # fishの設定ディレクトリがある場合のみシンボリックリンクを作成する
 if [ -d ${HOME}/.config/fish ]; then
