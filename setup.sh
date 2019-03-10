@@ -11,6 +11,15 @@ echo "symbolic link: ${HOME}/.vimrc -> ${DOTPATH}/.vimrc"
 ln -sf ${DOTPATH}/.bash_profile ${HOME}/.bash_profile
 echo "symbolic link: ${HOME}/.bash_profile -> ${DOTPATH}/.bash_profile"
 
+# vimの設定ディレクトリが存在しない場合は作成する
+if [ ! -d ${HOME}/.vim/colors ]; then
+  mkdir ${HOME}/.vim
+  mkdir ${HOME}/.vim/colors
+fi
+
+ln -sf ${DOTPATH}/.vim/colors/hybrid.vim ${HOME}/.vim/colors/hybrid.vim
+echo "symbolic link: ${HOME}/.vim/colors/hybrid.vim -> ${DOTPATH}/.vim/colors/hybrid.vim"
+
 # fishの設定ディレクトリがある場合のみシンボリックリンクを作成する
 if [ -d ${HOME}/.config/fish ]; then
   ln -sf ${DOTPATH}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
