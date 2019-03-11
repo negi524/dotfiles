@@ -11,4 +11,5 @@ set shiftwidth=2                                "自動インデントの幅
 set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%
-colorscheme murphy                              "配色を指定
+let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
+colorscheme hybrid
