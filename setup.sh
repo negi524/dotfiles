@@ -13,6 +13,8 @@ echo "symbolic link: ${HOME}/.bash_profile -> ${DOTPATH}/.bash_profile"
 
 # vimの設定ディレクトリが存在しない場合は作成する
 if [ ! -d ${HOME}/.vim/colors ]; then
+  mkdir ${HOME}/.vim/colors
+elif [ ! -d ${HOME}/.vim ]; then
   mkdir ${HOME}/.vim
   mkdir ${HOME}/.vim/colors
 fi
