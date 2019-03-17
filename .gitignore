@@ -1,0 +1,4 @@
+.DS_Store
+downloads/
+.vim/colors/*
+!.vim/colors/.gitkeep
