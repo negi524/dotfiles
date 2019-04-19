@@ -1,0 +1,10 @@
+[user]
+	name = negi
+	email = egtnrumpbiizarre.info@gmail.com
+[color]
+	ui = auto
+[alias]
+  st = status
+  co = commit
+  br = branch
+  ch = checkout

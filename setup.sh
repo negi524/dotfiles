@@ -18,12 +18,14 @@ create_ln () {
 
 create_ln ".vimrc"
 create_ln ".bash_profile"
+create_ln ".gitconfig"
 
 # vimの設定ディレクトリが存在しない場合は作成する
-if [ ! -d ${HOME}/.vim/colors ]; then
-  mkdir ${HOME}/.vim/colors
-elif [ ! -d ${HOME}/.vim ]; then
+if [ ! -d ${HOME}/.vim ]; then
   mkdir ${HOME}/.vim
+fi
+
+if [ ! -d ${HOME}/.vim/colors ]; then
   mkdir ${HOME}/.vim/colors
 fi
 
