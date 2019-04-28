@@ -6,12 +6,13 @@ DOTPATH="${HOME}/dotfiles"
 cd ${DOTPATH}
 
 # hybridのデータをダウンロードする
-if [ ! -d ${DOTPATH}/downloads/vim-hybrid ]; then
-  git clone git@github.com:w0ng/vim-hybrid.git ${DOTPATH}/downloads/vim-hybrid
+if [ ! -d ${DOTPATH}/downloads/vim-hybrid-master ]; then
+  wget https://github.com/w0ng/vim-hybrid/archive/master.zip -P ${DOTPATH}/downloads/
+  unzip ${DOTPATH}/downloads/master.zip -d ${DOTPATH}/downloads/
 fi
 
 if [ ! -f ${DOTPATH}/.vim/colors/hybrid.vim ]; then
-  cp ${DOTPATH}/downloads/vim-hybrid/colors/hybrid.vim ${DOTPATH}/.vim/colors/
+  cp ${DOTPATH}/downloads/vim-hybrid-master/colors/hybrid.vim ${DOTPATH}/.vim/colors/
 fi
 
 exit 0
