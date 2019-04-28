@@ -19,21 +19,31 @@ create_ln () {
 create_ln ".vimrc"
 create_ln ".bash_profile"
 
+# vim --------------------------------------
+
 # vimの設定ディレクトリが存在しない場合は作成する
-if [ ! -d ${HOME}/.vim/colors ]; then
-  mkdir ${HOME}/.vim/colors
-elif [ ! -d ${HOME}/.vim ]; then
+if [ ! -d ${HOME}/.vim ]; then
   mkdir ${HOME}/.vim
+fi
+
+if [ ! -d ${HOME}/.vim/colors ]; then
   mkdir ${HOME}/.vim/colors
 fi
 
 create_ln ".vim/colors/hybrid.vim"
 
-# fishの設定ディレクトリがある場合のみシンボリックリンクを作成する
-if [ -d ${HOME}/.config/fish ]; then
-  create_ln ".config/fish/config.fish"
-else
-  echo "No such directory: ${HOME}/.cofig/fish"
+# fish -------------------------------------
+
+# fishの設定ディレクトリが存在しない場合は作成する
+if [ ! -d ${HOME}/.config/fish ]; then
+  mkdir ${HOME}/.config/fish
 fi
+
+if [ ! -d ${HOME}/.config/fish/functions ]; then
+  mkdir ${HOME}/.config/fish/functions
+fi
+
+create_ln ".config/fish/config.fish"
+create_ln ".config/fish/functions/fish_prompt.fish"
 
 exit 0
