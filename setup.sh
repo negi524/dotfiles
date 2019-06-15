@@ -32,6 +32,11 @@ fi
 
 create_ln ".vim/colors/hybrid.vim"
 
+if [ ! -d ${HOME}/.vim/autoload ]; then
+  mkdir ${HOME}/.vim/autoload
+fi
+create_ln ".vim/autoload/plug.vim"
+
 # fish -------------------------------------
 
 # fishの設定ディレクトリが存在しない場合は作成する
