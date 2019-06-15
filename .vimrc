@@ -23,3 +23,5 @@ set tags=./tags;~/tags                          "カレントディレクトリ�
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
+" タグを生成するコマンドのエイリアスを設定する
+:command Maketag !ctags -Rf ~/tags --exclude=.git --tag-relative
