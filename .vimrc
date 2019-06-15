@@ -1,8 +1,9 @@
 "プラグイン設定
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
 
+set helplang=en,ja
 set number                                      "行番号を表示
 set showmatch                                   "括弧入力時の対応する括弧を表示
 set matchtime=1                                 "対応括弧に飛ぶ時間を0.1x1秒に設定
