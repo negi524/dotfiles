@@ -19,6 +19,7 @@ set smartindent                                 "一つ前の行に基づくイ�
 set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%
+set tags=./tags;~/tags                          "カレントディレクトリからホームディレクトリまで検索する
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
