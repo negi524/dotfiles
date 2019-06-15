@@ -13,42 +13,41 @@ function main () {
   # vim --------------------------------------
 
   # vimの設定ディレクトリが存在しない場合は作成する
-  if [ ! -d ${HOME}/.vim ]; then
-    mkdir ${HOME}/.vim
-  fi
-
-  if [ ! -d ${HOME}/.vim/colors ]; then
-    mkdir ${HOME}/.vim/colors
-  fi
+  set_dir ".vim"
+  set_dir ".vim/colors"
+  set_dir ".vim/autoload"
 
   create_ln ".vim/colors/hybrid.vim"
-
-  if [ ! -d ${HOME}/.vim/autoload ]; then
-    mkdir ${HOME}/.vim/autoload
-  fi
   create_ln ".vim/autoload/plug.vim"
 
   # fish -------------------------------------
 
   # fishの設定ディレクトリが存在しない場合は作成する
-  if [ ! -d ${HOME}/.config/fish ]; then
-    mkdir ${HOME}/.config/fish
-  fi
-
-  if [ ! -d ${HOME}/.config/fish/functions ]; then
-    mkdir ${HOME}/.config/fish/functions
-  fi
+  set_dir ".config/fish"
+  set_dir ".config/fish/functions"
 
   create_ln ".config/fish/config.fish"
   create_ln ".config/fish/functions/fish_prompt.fish"
 }
 
 # シンボリックリンクを貼る関数
+# 同じファイルが存在する場合、上書きする
 # $1: 対象ファイル
 function create_ln () {
   local FILE=$1
 
   ln -vsf ${DOTPATH}/${FILE} ${HOME}/${FILE}
+  return 0
+}
+
+# 対象のディレクトリがない場合は作成する関数
+# $1: 対象ディレクトリ
+function set_dir () {
+  local DIR=$1
+
+  if [ ! -d ${HOME}/${DIR} ]; then
+    mkdir ${HOME}/${DIR}
+  fi
   return 0
 }
 
