@@ -2,3 +2,6 @@
 downloads/
 .vim/colors/*
 !.vim/colors/.gitkeep
+
+.vim/autoload/*
+!.vim/autoload/plug.vim
