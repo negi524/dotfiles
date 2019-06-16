@@ -7,27 +7,55 @@ cd ${DOTPATH}
 
 # main関数
 function main () {
-  create_ln ".vimrc"
-  create_ln ".bash_profile"
+
+  local DOTLIST=(".vimrc" ".bash_profile")
+
+  for var in ${DOTLIST[@]}
+  do
+    create_ln ${var}
+  done
 
   # vim --------------------------------------
-
-  # vimの設定ディレクトリが存在しない場合は作成する
-  set_dir ".vim"
-  set_dir ".vim/colors"
-  set_dir ".vim/autoload"
-
-  create_ln ".vim/colors/hybrid.vim"
-  create_ln ".vim/autoload/plug.vim"
+  vim_setting
 
   # fish -------------------------------------
+  fish_setting
+}
+
+# vimの設定を行う関数
+function vim_setting () {
+
+  # vimの設定ディレクトリが存在しない場合は作成する
+  local VIM_DIRS=(".vim" ".vim/colors" ".vim/autoload")
+  for var in ${VIM_DIRS[@]}
+  do
+    set_dir ${var}
+  done
+
+  # シンボリックリンクを作成
+  local VIM_FILES=(".vim/colors/hybrid.vim" ".vim/autoload/plug.vim")
+  for var in ${VIM_FILES[@]}
+  do
+    create_ln ${var}
+  done
+}
+
+# fishの設定を行う関数
+function fish_setting () {
 
   # fishの設定ディレクトリが存在しない場合は作成する
-  set_dir ".config/fish"
-  set_dir ".config/fish/functions"
+  local FISH_DIRS=(".config/fish" ".config/fish/functions")
+  for var in ${FISH_DIRS[@]}
+  do
+    set_dir ${var}
+  done
 
-  create_ln ".config/fish/config.fish"
-  create_ln ".config/fish/functions/fish_prompt.fish"
+  # シンボリックリンクを作成
+  local FISH_FILES=(".config/fish/config.fish" ".config/fish/functions/fish_prompt.fish")
+  for var in ${FISH_FILES[@]}
+  do
+    create_ln ${var}
+  done
 }
 
 # シンボリックリンクを貼る関数
