@@ -1,6 +1,7 @@
 "プラグイン設定
 call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
+Plug 'tpope/vim-fugitive'
 "Plug 'wesleyche/SrcExpl'
 call plug#end()
 

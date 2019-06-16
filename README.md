@@ -13,10 +13,10 @@
 
 ### Vim のプラグイン
 
-|         名称           |       説明       |
-| :--------------------: | :--------------: |
-| [vim-jp/vimdoc-ja][1]  | ヘルプの日本語化 |
-| [wesleyche/SrcExpl][2] | 定義元プレビュー |
+|         名称            |       説明       |
+| :---------------------: | :--------------: |
+| [vim-jp/vimdoc-ja][1]   | ヘルプの日本語化 |
+| [tpope/vim-fugitive][2] | gitを便利にする  |
 
 [1]: https://github.com/vim-jp/vimdoc-ja
-[2]: https://github.com/wesleyche/SrcExpl
+[2]: https://github.com/tpope/vim-fugitive
