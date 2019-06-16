@@ -1,7 +1,7 @@
 "プラグイン設定
 call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
-Plug 'wesleyche/SrcExpl'
+"Plug 'wesleyche/SrcExpl'
 call plug#end()
 
 set helplang=en,ja
@@ -25,4 +25,7 @@ let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
 " タグを生成するコマンドのエイリアスを設定する
-":command Maketag !ctags -Rf ~/tags --exclude=.git --tag-relative
+:command Maketag !ctags -Rf ~/tags --exclude=.git --tag-relative
+
+" source explorer
+" let g:SrcExpl_updateTagsCmd = "ctags -R --tag-relative --exclude={.git,node_modules,vendor}"
