@@ -16,14 +16,14 @@ function main () {
   done
 
   # vim --------------------------------------
-  set_vim
+  vim_setting
 
   # fish -------------------------------------
-  set_fish
+  fish_setting
 }
 
 # vimの設定を行う関数
-function set_vim () {
+function vim_setting () {
 
   # vimの設定ディレクトリが存在しない場合は作成する
   local VIM_DIRS=(".vim" ".vim/colors" ".vim/autoload")
@@ -41,14 +41,21 @@ function set_vim () {
 }
 
 # fishの設定を行う関数
-function set_fish () {
+function fish_setting () {
 
   # fishの設定ディレクトリが存在しない場合は作成する
-  set_dir ".config/fish"
-  set_dir ".config/fish/functions"
+  local FISH_DIRS=(".config/fish" ".config/fish/functions")
+  for var in ${FISH_DIRS[@]}
+  do
+    set_dir ${var}
+  done
 
-  create_ln ".config/fish/config.fish"
-  create_ln ".config/fish/functions/fish_prompt.fish"
+  # シンボリックリンクを作成
+  local FISH_FILES=(".config/fish/config.fish" ".config/fish/functions/fish_prompt.fish")
+  for var in ${FISH_FILES[@]}
+  do
+    create_ln ${var}
+  done
 }
 
 # シンボリックリンクを貼る関数
