@@ -20,12 +20,14 @@ set smartindent                                 "一つ前の行に基づくイ�
 set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%
-set tags=./tags;~/tags                          "カレントディレクトリからホームディレクトリまで検索する
+"set tags=./tags;~/tags                          "カレントディレクトリからホームディレクトリまで検索する
+set tags=./tags,tags,~/dotfiles/tmp/tags        "dotfiles内のタグも検索対象に含める
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
 " タグを生成するコマンドのエイリアスを設定する
-:command Maketag !ctags -Rf ~/tags --exclude=.git --tag-relative
+" タグの生成場所は~/dotfiles/tmp/tags
+:command Maketag !ctags -Rf ~/dotfiles/tmp/tags --exclude=.git --tag-relative
 
 " source explorer
 " let g:SrcExpl_updateTagsCmd = "ctags -R --tag-relative --exclude={.git,node_modules,vendor}"
