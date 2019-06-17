@@ -5,11 +5,12 @@ Plug 'tpope/vim-fugitive'
 "Plug 'wesleyche/SrcExpl'
 call plug#end()
 
-set helplang=en,ja
+set helplang=ja,en
 set number                                      "行番号を表示
 set showmatch                                   "括弧入力時の対応する括弧を表示
 set matchtime=1                                 "対応括弧に飛ぶ時間を0.1x1秒に設定
-set cursorcolumn                                "縦方向のハイライト
+"set cursorcolumn                                "縦方向のハイライト
+set laststatus=2                                " ステータスラインを常に表示する
 set title                                       "ファイル名を表示
 syntax on                                       "シンタックスハイライト
 au BufRead,BufNewFile *.scss set filetype=sass  "scssのシンタックスハイライト
