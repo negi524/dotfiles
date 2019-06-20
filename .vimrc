@@ -9,6 +9,7 @@ set helplang=en,ja                              "ヘルプの言語を英語優�
 set number                                      "行番号を表示
 set title                                       "ファイル名を表示
 set pumheight=10                                "補完メニューの高さ
+set smartcase                                   "小文字で検索時、大文字小文字を無視する
 
 " 括弧
 set showmatch                                   "括弧入力時の対応する括弧を表示
