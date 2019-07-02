@@ -5,6 +5,16 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 # set -x PATH $HOME/.pyenv/bin $PATH
 # eval (pyenv init - | source)
 
+# macではnodebrewを利用しているため、パスを通す
+switch (uname)
+    case Linux
+      echo Hello, Linux!
+    case Darwin
+      echo Hello, mac OS!
+      set -x PATH $HOME/.nodebrew/current/bin $PATH
+    case '*'
+      echo Hello, stranger!
+end
 
 # Fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
