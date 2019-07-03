@@ -1,10 +1,6 @@
 # 配色の設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-# pyenv用の設定
-# set -x PATH $HOME/.pyenv/bin $PATH
-# eval (pyenv init - | source)
-
 # macではnodebrewを利用しているため、パスを通す
 switch (uname)
     case Linux
@@ -12,6 +8,10 @@ switch (uname)
     case Darwin
       echo Hello, mac OS!
       set -x PATH $HOME/.nodebrew/current/bin $PATH
+      # pyenv用の設定
+      set -x PYENV_ROOT $HOME/.pyenv
+      set -x PATH $PYENV_ROOT/bin $PATH
+      eval (pyenv init - | source)
     case '*'
       echo Hello, stranger!
 end
