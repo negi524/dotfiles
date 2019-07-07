@@ -1,10 +1,18 @@
 # 配色の設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-# pyenv用の設定
-# set -x PATH $HOME/.pyenv/bin $PATH
-# eval (pyenv init - | source)
+switch (uname)
+case Linux
+  set OS 'Linux'
+case Darwin
+  set OS 'Mac OS'
+  # pyenv用の設定
+  eval (pyenv init - | source)
+case '*'
+  set OS 'Stranger'
+end
 
+echo "Hello, $OS !"
 
 # Fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
