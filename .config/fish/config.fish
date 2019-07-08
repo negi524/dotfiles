@@ -1,20 +1,20 @@
 # 配色の設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-# macではnodebrewを利用しているため、パスを通す
 switch (uname)
-    case Linux
-      echo Hello, Linux!
-    case Darwin
-      echo Hello, mac OS!
-      set -x PATH $HOME/.nodebrew/current/bin $PATH
-      # pyenv用の設定
-      set -x PYENV_ROOT $HOME/.pyenv
-      set -x PATH $PYENV_ROOT/bin $PATH
-      eval (pyenv init - | source)
-    case '*'
-      echo Hello, stranger!
+case Linux
+  set OS 'Linux'
+case Darwin
+  set OS 'Mac OS'
+  # macではnodebrewを利用しているため、パスを通す
+  set -x PATH $HOME/.nodebrew/current/bin $PATH
+  # pyenv用の設定
+  eval (pyenv init - | source)
+case '*'
+  set OS 'Stranger'
 end
+
+echo "Hello, $OS !"
 
 # Fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
