@@ -19,7 +19,9 @@ function main () {
   vim_setting
 
   # fish -------------------------------------
-  fish_setting
+  if type fish > /dev/null 2>&1; then
+    fish_setting
+  fi
 }
 
 # vimの設定を行う関数
