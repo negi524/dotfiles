@@ -4,7 +4,7 @@ case "$(uname)" in
     function gg () {
       local WORD=$@
       open -a /Applications/Google\ Chrome.app \
-        "http://www.google.com/search?q=${WORD}"
+        "https://www.google.com/search?q=${WORD}"
       echo "Now googling ${WORD}..."
     }
     ;;
