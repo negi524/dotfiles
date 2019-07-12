@@ -10,6 +10,13 @@ case Darwin
   set -x PATH $HOME/.nodebrew/current/bin $PATH
   # pyenv用の設定
   eval (pyenv init - | source)
+
+  # コマンドラインからググるコマンド
+  function gg
+    open -a /Applications/Google\ Chrome.app \
+    "http://www.google.com/search?q=$argv"
+    echo "Now googling $argv..."
+  end
 case '*'
   set OS 'Stranger'
 end
