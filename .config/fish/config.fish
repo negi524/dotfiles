@@ -12,7 +12,7 @@ case Darwin
   # コマンドラインからググるコマンド
   function gg
     open -a /Applications/Google\ Chrome.app \
-    "http://www.google.com/search?q=$argv"
+    "https://www.google.com/search?q=$argv"
     echo "Now googling $argv..."
   end
 case '*'
