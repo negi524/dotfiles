@@ -6,10 +6,10 @@ case Linux
   set OS 'Linux'
 case Darwin
   set OS 'Mac OS'
-  # macではnodebrewを利用しているため、パスを通す
-  set -x PATH $HOME/.nodebrew/current/bin $PATH
   # pyenv用の設定
   eval (pyenv init - | source)
+  # macではnodebrewを利用しているため、パスを通す
+  set -x PATH $HOME/.nodebrew/current/bin $PATH
 
   # コマンドラインからググるコマンド
   function gg
