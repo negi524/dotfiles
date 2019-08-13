@@ -8,6 +8,13 @@ case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
   eval (pyenv init - | source)
+
+  # コマンドラインからググるコマンド
+  function gg
+    open -a /Applications/Google\ Chrome.app \
+    "https://www.google.com/search?q=$argv"
+    echo "Now googling $argv..."
+  end
 case '*'
   set OS 'Stranger'
 end
