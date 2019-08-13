@@ -24,7 +24,7 @@ syntax enable                                   "構文チェック
 
 " タブ、インデント
 set tabstop=2                                   "タブの文字幅
-set shiftwidth=4                                "自動インデントの幅
+set shiftwidth=2                                "自動インデントの幅
 set smartindent                                 "一つ前の行に基づくインデント
 set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
