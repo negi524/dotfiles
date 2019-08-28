@@ -5,6 +5,7 @@ Plug 'tpope/vim-fugitive'
 "Plug 'wesleyche/SrcExpl'
 call plug#end()
 
+" 基本
 set helplang=en,ja                              "ヘルプの言語を英語優先にする
 set number                                      "行番号を表示
 set title                                       "ファイル名を表示
@@ -29,6 +30,8 @@ set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
 
+" マウス
+set mouse=a                                     "マウス操作を有効にする
 
 " プラグイン設定
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
