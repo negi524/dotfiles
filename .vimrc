@@ -36,6 +36,7 @@ set mouse=a                                     "マウス操作を有効にす�
 " プラグイン設定
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
+filetype plugin on                              "ftpluginによるファイルタイプの検出とプラグインを有効にする
 
 "set tags=./tags;~/tags                          "カレントディレクトリからホームディレクトリまで検索する
 set tags=./tags,tags,~/dotfiles/tmp/tags        "dotfiles内のタグも検索対象に含める
