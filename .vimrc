@@ -17,7 +17,6 @@ set showmatch                                   "括弧入力時の対応する�
 set matchtime=1                                 "対応括弧に飛ぶ時間を0.1x1秒に設定
 
 " ハイライト
-set cursorcolumn                                "縦方向のハイライト
 syntax on                                       "シンタックスハイライト
 au BufRead,BufNewFile *.scss set filetype=sass  "scssのシンタックスハイライト
 syntax enable                                   "構文チェック
