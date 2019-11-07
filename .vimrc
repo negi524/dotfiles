@@ -29,9 +29,6 @@ set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
 
-" マウス
-set mouse=a                                     "マウス操作を有効にする
-
 " プラグイン設定
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
