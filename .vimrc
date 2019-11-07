@@ -6,7 +6,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " 基本
-set helplang=en,ja                              "ヘルプの言語を英語優先にする
+set helplang=ja,en                              "ヘルプの言語を日本語優先にする
 set number                                      "行番号を表示
 set title                                       "ファイル名を表示
 set pumheight=10                                "補完メニューの高さ
