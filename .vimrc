@@ -29,6 +29,9 @@ set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
 
+" phpファイル保存時に構文チェックを行う
+autocmd Bufwrite *.php !php -l %
+
 " プラグイン設定
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
