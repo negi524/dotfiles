@@ -2,7 +2,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
 Plug 'tpope/vim-fugitive'
-"Plug 'wesleyche/SrcExpl'
 call plug#end()
 
 " 基本
