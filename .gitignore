@@ -7,4 +7,7 @@ downloads/
 !.vim/autoload/plug.vim
 
 tmp/*
-!tmp/.gitkeep
+
+# iTerm2用の設定ファイルを格納する
+iTerm2/*
+!.gitkeep

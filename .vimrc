@@ -2,11 +2,10 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
 Plug 'tpope/vim-fugitive'
-"Plug 'wesleyche/SrcExpl'
 call plug#end()
 
 " 基本
-set helplang=en,ja                              "ヘルプの言語を英語優先にする
+set helplang=ja,en                              "ヘルプの言語を日本語優先にする
 set number                                      "行番号を表示
 set title                                       "ファイル名を表示
 set pumheight=10                                "補完メニューの高さ
@@ -28,6 +27,9 @@ set smartindent                                 "一つ前の行に基づくイ�
 set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
+
+" phpファイル保存時に構文チェックを行う
+autocmd Bufwrite *.php !php -l %
 
 " プラグイン設定
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
