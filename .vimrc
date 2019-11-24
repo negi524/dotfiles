@@ -28,12 +28,12 @@ set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
 
-" phpファイル保存時に構文チェックを行う
-autocmd Bufwrite *.php !php -l %
-
-" プラグイン設定
+" カラースキーム設定
+autocmd ColorScheme * highlight MatchParen ctermfg=0 ctermbg=1 guifg=Black guibg=Red
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
+
+" プラグイン設定
 filetype plugin on                              "ftpluginによるファイルタイプの検出とプラグインを有効にする
 
 "set tags=./tags;~/tags                          "カレントディレクトリからホームディレクトリまで検索する
