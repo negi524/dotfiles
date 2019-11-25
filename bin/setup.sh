@@ -35,7 +35,7 @@ function vim_setting () {
   done
 
   # シンボリックリンクを作成
-  local VIM_FILES=(".vim/colors/hybrid.vim" ".vim/autoload/plug.vim")
+  local VIM_FILES=(".vim/colors/*.vim" ".vim/autoload/plug.vim")
   for var in ${VIM_FILES[@]}
   do
     create_ln ${var}
