@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
 Plug 'tpope/vim-fugitive'
+Plug 'posva/vim-vue'
 call plug#end()
 
 " 基本
