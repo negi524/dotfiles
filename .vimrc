@@ -29,6 +29,12 @@ set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
 set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
 
+" コマンドライン
+" <C-p>, <C-n>でフィルタリングしながらコマンドラインの補完を行う
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+set wildmenu                                    "入力候補を表示する
+
 " カラースキーム設定
 autocmd ColorScheme * highlight MatchParen ctermfg=0 ctermbg=21 guifg=Black guibg=Blue1
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
