@@ -37,3 +37,7 @@ set __fish_git_prompt_char_untrackedfiles '☡'
 set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
+
+
+# fzfの古いキーバインディングを利用しない設定
+set -U FZF_LEGACY_KEYBINDINGS 0

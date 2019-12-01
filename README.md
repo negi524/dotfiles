@@ -11,7 +11,7 @@
 - color scheme : hybrid
 - plugin : vim-plug
 
-### Vim のプラグイン
+### plugin for Vim
 
 |          名称           |             説明             |
 | :---------------------: | :--------------------------: |
@@ -31,3 +31,13 @@
 
 - `Ctrl + ]`: 宣言元へジャンプ
 - `Ctrl + o`: 戻る
+
+## fish
+
+### plugin for fish
+
+|        名称         |      説明      |
+| :-----------------: | :------------: |
+| [jethrokuan/fzf][1] | 曖昧検索をする |
+
+[1]: https://github.com/jethrokuan/fzf

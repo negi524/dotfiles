@@ -53,7 +53,7 @@ function fish_setting () {
   done
 
   # シンボリックリンクを作成
-  local FISH_FILES=(".config/fish/config.fish" ".config/fish/functions/fish_prompt.fish")
+  local FISH_FILES=(".config/fish/config.fish" ".config/fish/functions/*.fish")
   for var in ${FISH_FILES[@]}
   do
     create_ln ${var}
