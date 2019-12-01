@@ -9,6 +9,7 @@ cd ${DOTPATH}
 function main () {
 
   local DOTLIST=(".vimrc" ".bash_profile")
+  DOTLIST+=(".bashrc")
 
   for var in ${DOTLIST[@]}
   do
@@ -53,7 +54,8 @@ function fish_setting () {
   done
 
   # シンボリックリンクを作成
-  local FISH_FILES=(".config/fish/config.fish" ".config/fish/functions/*.fish")
+  local FISH_FILES=(".config/fish/config.fish")
+  FISH_FILES+=(".config/fish/functions/*.fish")
   for var in ${FISH_FILES[@]}
   do
     create_ln ${var}
