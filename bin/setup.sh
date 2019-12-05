@@ -3,6 +3,7 @@ set -eu
 
 DOTPATH="${HOME}/dotfiles"
 
+. ${DOTPATH}/bin/logger.sh
 . ${DOTPATH}/bin/fish_setting.sh
 
 cd ${DOTPATH}
