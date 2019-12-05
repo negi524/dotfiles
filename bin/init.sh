@@ -20,11 +20,11 @@ function fzf_install() {
     # Macの場合はhomebrewを使ってインストールする
     case "$(uname)" in
       'Darwin')
-        echo brew install fzf
+        brew install fzf
         ;;
       *)
         git clone --depth 1 https://github.com/junegunn/fzf.git ${DOTPATH}/downloads/.fzf
-        echo ${DOTPATH}/downloads/.fzf/install
+        ${DOTPATH}/downloads/.fzf/install
         ;;
     esac
   fi
