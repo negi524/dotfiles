@@ -11,23 +11,49 @@
 - color scheme : hybrid
 - plugin : vim-plug
 
-### Vim のプラグイン
+### plugin for Vim
 
-|          名称           |             説明             |
-| :---------------------: | :--------------------------: |
-|  [vim-jp/vimdoc-ja][1]  |       ヘルプの日本語化       |
-| [tpope/vim-fugitive][2] |       git を便利にする       |
-|   [posva/vim-vue][3]    | vue のシンタックスハイライト |
-
-[1]: https://github.com/vim-jp/vimdoc-ja
-[2]: https://github.com/tpope/vim-fugitive
-[3]: https://github.com/posva/vim-vue
+|          名称          |             説明             |
+| :--------------------: | :--------------------------: |
+|  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
+| [tpope/vim-fugitive][] |       git を便利にする       |
+|   [posva/vim-vue][]    | vue のシンタックスハイライト |
 
 ### Vim コマンド
 
-#### Maketag
+#### install vim plugin
+
+```
+:PlugInstall
+```
+
+#### create code tags
+
+```
+:Maketag
+```
 
 `~/dotfiles/tmp/tags` にタグを生成する。
 
 - `Ctrl + ]`: 宣言元へジャンプ
 - `Ctrl + o`: 戻る
+
+## fish
+
+### plugin for fish
+
+|        名称        |      説明      |
+| :----------------: | :------------: |
+| [jethrokuan/fzf][] | 曖昧検索をする |
+
+#### install fish plugin
+
+```
+$ fisher add jethrokuan/fzf
+```
+
+
+[vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
+[tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
+[posva/vim-vue]: https://github.com/posva/vim-vue
+[jethrokuan/fzf]: https://github.com/jethrokuan/fzf

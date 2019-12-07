@@ -13,10 +13,30 @@ function download_vim_color() {
   fi
 }
 
+function fzf_install() {
+  # fzfコマンドのインストール
+  if !(type fzf > /dev/null 2>&1); then
+    echo 'install fzf...'
+    # Macの場合はhomebrewを使ってインストールする
+    case "$(uname)" in
+      'Darwin')
+        brew install fzf
+        ;;
+      *)
+        git clone --depth 1 https://github.com/junegunn/fzf.git ${DOTPATH}/downloads/.fzf
+        ${DOTPATH}/downloads/.fzf/install
+        ;;
+    esac
+  fi
+}
+
 # main関数
 function main () {
   # vimのカラースキームをダウンロード
   download_vim_color
+
+  # fzfのインストール
+  fzf_install
 }
 
 main
