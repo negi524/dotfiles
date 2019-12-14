@@ -18,6 +18,7 @@ set showmatch                                   "括弧入力時の対応する�
 set matchtime=1                                 "対応括弧に飛ぶ時間を0.1x1秒に設定
 
 " ハイライト
+set hlsearch                                    " 検索ワードのハイライトを行う
 syntax on                                       "シンタックスハイライト
 au BufRead,BufNewFile *.scss set filetype=sass  "scssのシンタックスハイライト
 syntax enable                                   "構文チェック
@@ -37,7 +38,10 @@ cnoremap <C-n> <Down>
 set wildmenu                                    "入力候補を表示する
 
 " カラースキーム設定
+" 対応括弧の色
 autocmd ColorScheme * highlight MatchParen ctermfg=0 ctermbg=21 guifg=Black guibg=Blue1
+" 行番号の色
+autocmd ColorScheme * highlight LineNr ctermfg=lightmagenta
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
