@@ -17,6 +17,15 @@ set relativenumber                              " 行番号をカーソルから
 set showmatch                                   "括弧入力時の対応する括弧を表示
 set matchtime=1                                 "対応括弧に飛ぶ時間を0.1x1秒に設定
 
+" ステータスライン
+set laststatus=2                                " ステータスラインを常に表示する
+set statusline=%F                               " ファイル名表示
+set statusline+=%r                              " 読み込み専用かどうかを表示
+set statusline+=%=                              " これ以降は右寄せ表示
+set statusline+=[BF=%n]                         " バッファ番号
+set statusline+=[LOW=%l/%L]                     " 現在行数/全行数
+set statusline+=%y                              " ファイルタイプ表示
+
 " ハイライト
 set hlsearch                                    " 検索ワードのハイライトを行う
 syntax on                                       "シンタックスハイライト

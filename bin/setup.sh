@@ -13,6 +13,7 @@ function main () {
 
   local DOTLIST=(".vimrc" ".bash_profile")
   DOTLIST+=(".bashrc")
+  DOTLIST+=(".tmux.conf")
 
   for var in ${DOTLIST[@]}
   do
