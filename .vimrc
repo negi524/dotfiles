@@ -16,7 +16,6 @@ set relativenumber                              " 行番号をカーソルから
 " 括弧
 set showmatch                                   "括弧入力時の対応する括弧を表示
 set matchtime=1                                 "対応括弧に飛ぶ時間を0.1x1秒に設定
-set laststatus=2                                " ステータスラインを常に表示する
 
 " ステータスライン
 set laststatus=2                                " ステータスラインを常に表示する
