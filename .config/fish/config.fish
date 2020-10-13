@@ -4,6 +4,10 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 switch (uname)
 case Linux
   set OS 'Linux'
+  # tmuxの開発環境を構築するコマンド
+  function ide
+    tmux split-window -v -p 30
+  end
 case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
