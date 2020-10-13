@@ -15,6 +15,11 @@ case Darwin
     "https://www.google.com/search?q=$argv"
     echo "Now googling $argv..."
   end
+
+  # tmuxの開発環境を構築するコマンド
+  function ide
+    tmux split-window -v -p 30
+  end
 case '*'
   set OS 'Stranger'
 end
