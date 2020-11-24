@@ -6,6 +6,26 @@
 - fish
 - vim
 
+## 初期設定
+
+リポジトリをホームディレクトリ配下にクローン
+```bash
+cd ~/
+git clone git@github.com:negi524/dotfiles.git
+```
+
+必要なデータをダウンロード
+```bash
+~/dotfiles/etc/init
+```
+
+## 設定の構築
+
+各種設定を反映する
+```bash
+~/dotfiles/etc/setup
+```
+
 ## Vim
 
 - color scheme : hybrid
