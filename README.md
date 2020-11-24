@@ -5,16 +5,20 @@
 - bash
 - fish
 - vim
+- tmux
+- iTerm2
 
 ## 初期設定
 
 リポジトリをホームディレクトリ配下にクローン
+
 ```bash
 cd ~/
 git clone git@github.com:negi524/dotfiles.git
 ```
 
 必要なデータをダウンロード
+
 ```bash
 ~/dotfiles/etc/init
 ```
@@ -22,25 +26,31 @@ git clone git@github.com:negi524/dotfiles.git
 ## 設定の構築
 
 各種設定を反映する
+
 ```bash
 ~/dotfiles/etc/setup
 ```
 
-## ディレクトリ
+## ディレクトリ構成
 
 ### bin/
+
 自作のコマンドスクリプトやバイナリなどを配置
 
 ### etc/
-dotfilesの設定反映などに利用する設定用のスクリプトなどを配置
+
+dotfiles の設定反映などに利用する設定用のスクリプトなどを配置
 
 ### downloads/
+
 設定時に必要なダウンロードしたものを配置
 
 ### iTerm2/
-iTerm2で利用する設定ファイルを配置
+
+iTerm2 で利用する設定ファイルを配置
 
 ### tmp/
+
 一時的なファイルを配置
 削除されても問題ないファイルを配置
 
@@ -89,7 +99,6 @@ iTerm2で利用する設定ファイルを配置
 ```
 $ fisher add jethrokuan/fzf
 ```
-
 
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
