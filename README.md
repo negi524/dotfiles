@@ -26,6 +26,24 @@ git clone git@github.com:negi524/dotfiles.git
 ~/dotfiles/etc/setup
 ```
 
+## ディレクトリ
+
+### bin/
+自作のコマンドスクリプトやバイナリなどを配置
+
+### etc/
+dotfilesの設定反映などに利用する設定用のスクリプトなどを配置
+
+### downloads/
+設定時に必要なダウンロードしたものを配置
+
+### iTerm2/
+iTerm2で利用する設定ファイルを配置
+
+### tmp/
+一時的なファイルを配置
+削除されても問題ないファイルを配置
+
 ## Vim
 
 - color scheme : hybrid
