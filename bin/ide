@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function main () {
-  echo "hello, world."
+  tmux split-window -v -p 30
 }
 
 main
