@@ -31,6 +31,7 @@ function main () {
 
 # vimの設定を行う関数
 function vim_setting () {
+  log "vimの設定反映"
 
   # vimの設定ディレクトリが存在しない場合は作成する
   local VIM_DIRS=(".vim" ".vim/colors" ".vim/autoload")

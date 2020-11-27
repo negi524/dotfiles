@@ -13,6 +13,9 @@ case Darwin
   # pyenv用の設定
   eval (pyenv init - | source)
 
+  # 独自コマンドのパスを通す
+  set -x PATH $PATH ~/dotfiles/bin
+
   # コマンドラインからググるコマンド
   function gg
     open -a /Applications/Google\ Chrome.app \
