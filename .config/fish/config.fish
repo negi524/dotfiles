@@ -15,6 +15,9 @@ case Darwin
   # macではnodebrewを利用しているため、パスを通す
   set -x PATH $HOME/.nodebrew/current/bin $PATH
 
+  # macではJavaのバージョンを固定する
+  set -x JAVA_HOME /usr/libexec/java_home -v 11
+
   # コマンドラインからググるコマンド
   function gg
     open -a /Applications/Google\ Chrome.app \
