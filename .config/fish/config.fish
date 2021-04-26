@@ -16,7 +16,7 @@ case Darwin
   set -x PATH $HOME/.nodebrew/current/bin $PATH
 
   # macではJavaのバージョンを固定する
-  set -x JAVA_HOME /usr/libexec/java_home -v 11
+  set -x JAVA_HOME (/usr/libexec/java_home -v 11)
 
   # コマンドラインからググるコマンド
   function gg
