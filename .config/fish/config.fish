@@ -7,7 +7,7 @@ case Linux
 case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
-  eval (pyenv init - | source)
+  eval (pyenv init --path)
 
   # 独自コマンドのパスを通す
   set -x PATH $PATH ~/dotfiles/bin
