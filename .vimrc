@@ -5,6 +5,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
 Plug 'tyru/current-func-info.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 " 基本
@@ -34,6 +36,7 @@ set statusline+=%y                              " ファイルタイプ表示
 set hlsearch                                    " 検索ワードのハイライトを行う
 syntax on                                       "シンタックスハイライト
 au BufRead,BufNewFile *.scss set filetype=sass  "scssのシンタックスハイライト
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact " TypeScriptのシンタックスハイライト
 syntax enable                                   "構文チェック
 
 " タブ、インデント
