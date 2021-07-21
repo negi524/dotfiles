@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function main () {
+  tmux split-window -v -p 30
+}
+
+main
+
+exit 0

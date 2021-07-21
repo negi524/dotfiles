@@ -11,12 +11,17 @@ case Linux
 case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
-  eval (pyenv init - | source)
-  # macではnodebrewを利用しているため、パスを通す
-  set -x PATH $HOME/.nodebrew/current/bin $PATH
+  # eval (pyenv init - | source)
+  eval (pyenv init --path)
 
   # macではJavaのバージョンを固定する
   set -x JAVA_HOME (/usr/libexec/java_home -v 11)
+
+  # node用の設定
+  set -x PATH $HOME/.nodebrew/current/bin $PATH
+
+  # 独自コマンドのパスを通す
+  set -x PATH $PATH ~/dotfiles/bin
 
   # コマンドラインからググるコマンド
   function gg
