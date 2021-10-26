@@ -4,6 +4,10 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 switch (uname)
 case Linux
   set OS 'Linux'
+  # tmuxの開発環境を構築するコマンド
+  function ide
+    tmux split-window -v -p 30
+  end
 case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
@@ -20,6 +24,11 @@ case Darwin
     open -a /Applications/Google\ Chrome.app \
     "https://www.google.com/search?q=$argv"
     echo "Now googling $argv..."
+  end
+
+  # tmuxの開発環境を構築するコマンド
+  function ide
+    tmux split-window -v -p 30
   end
 case '*'
   set OS 'Stranger'

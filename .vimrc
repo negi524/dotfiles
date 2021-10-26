@@ -49,6 +49,9 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 set wildmenu                                    "入力候補を表示する
 
+" netrw
+let g:netrw_preview=1                             " プレビューウィンドウを垂直分割で表示する
+
 " カラースキーム設定
 " 対応括弧の色
 autocmd ColorScheme * highlight MatchParen ctermfg=0 ctermbg=21 guifg=Black guibg=Blue1
