@@ -34,7 +34,7 @@ function fzf_install() {
 # インストールなどの初期設定のみを行う
 function main () {
   # vimのカラースキームをダウンロード
-  download_vim_color
+  # download_vim_color
 
   # fzfのインストール
   fzf_install

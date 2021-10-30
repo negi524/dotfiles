@@ -4,6 +4,7 @@ Plug 'vim-jp/vimdoc-ja'
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
 Plug 'tyru/current-func-info.vim'
+Plug 'w0ng/vim-hybrid'
 call plug#end()
 
 " 基本
@@ -57,6 +58,10 @@ let g:netrw_preview=1                             " プレビューウィンド�
 autocmd ColorScheme * highlight MatchParen ctermfg=0 ctermbg=21 guifg=Black guibg=Blue1
 " 行番号の色
 autocmd ColorScheme * highlight LineNr ctermfg=lightmagenta
+" コメント
+autocmd ColorScheme * highlight Comment ctermfg=144
+" 通常の文字
+autocmd ColorScheme * highlight Normal ctermfg=248
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
