@@ -62,6 +62,10 @@ autocmd ColorScheme * highlight LineNr ctermfg=lightmagenta
 autocmd ColorScheme * highlight Comment ctermfg=144
 " 通常の文字
 autocmd ColorScheme * highlight Normal ctermfg=248
+" ポップアップメニュー(通常の項目)
+autocmd ColorScheme * highlight Pmenu ctermfg=232 ctermbg=255
+" ポップアップメニュー(選択されている項目)
+autocmd ColorScheme * highlight PmenuSel ctermfg=41 ctermbg=54
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
