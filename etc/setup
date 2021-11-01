@@ -5,10 +5,12 @@ DOTPATH="${HOME}/dotfiles"
 
 . ${DOTPATH}/etc/logger.sh
 . ${DOTPATH}/etc/fish_setting.sh
+. ${DOTPATH}/etc/neovim_setting.sh
 
 cd ${DOTPATH}
 
 # main関数
+# 全ての設定ファイルに対してシンボリックリンクを作成する
 function main () {
 
   local DOTLIST=(".vimrc" ".bash_profile")
@@ -22,6 +24,9 @@ function main () {
 
   # vim --------------------------------------
   vim_setting
+
+  # Neovim -----------------------------------
+  neovim_setting
 
   # fish -------------------------------------
   if type fish > /dev/null 2>&1; then

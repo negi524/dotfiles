@@ -4,6 +4,7 @@ Plug 'vim-jp/vimdoc-ja'
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
 Plug 'tyru/current-func-info.vim'
+Plug 'w0ng/vim-hybrid'
 call plug#end()
 
 " 基本
@@ -14,6 +15,7 @@ set pumheight=10                                "補完メニューの高さ
 set smartcase                                   "小文字で検索時、大文字小文字を無視する
 "set relativenumber                              " 行番号をカーソルからの相対指定にする
 set nowrap                                      " 行の折り返しを無効にする
+set clipboard+=unnamed                          " ヤンク時にクリップボードにもコピーする
 
 " 括弧
 set showmatch                                   "括弧入力時の対応する括弧を表示
@@ -57,6 +59,16 @@ let g:netrw_preview=1                             " プレビューウィンド�
 autocmd ColorScheme * highlight MatchParen ctermfg=0 ctermbg=21 guifg=Black guibg=Blue1
 " 行番号の色
 autocmd ColorScheme * highlight LineNr ctermfg=lightmagenta
+" コメント
+autocmd ColorScheme * highlight Comment ctermfg=243
+" 通常の文字
+autocmd ColorScheme * highlight Normal ctermfg=248
+" ポップアップメニュー(通常の項目)
+autocmd ColorScheme * highlight Pmenu ctermfg=232 ctermbg=255
+" ポップアップメニュー(選択されている項目)
+autocmd ColorScheme * highlight PmenuSel ctermfg=41 ctermbg=54
+" ビジュアルモード選択
+autocmd ColorScheme * highlight Visual ctermbg=239
 let g:hybrid_custom_term_colors = 1             "iTerm2用のhybrid設定
 colorscheme hybrid
 
