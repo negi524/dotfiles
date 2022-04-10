@@ -66,6 +66,7 @@ iTerm2 で利用する設定ファイルを配置
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
 | [tpope/vim-fugitive][] |       git を便利にする       |
 |   [posva/vim-vue][]    | vue のシンタックスハイライト |
+|   [w0ng/vim-hybrid][]  | カラースキーム               |
 
 ### Vim コマンド
 
@@ -104,3 +105,4 @@ $ fisher add jethrokuan/fzf
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
 [posva/vim-vue]: https://github.com/posva/vim-vue
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
+[w0ng/vim-hybrid]: https://github.com/w0ng/vim-hybrid
