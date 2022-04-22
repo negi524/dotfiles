@@ -15,7 +15,6 @@ set pumheight=10                                "補完メニューの高さ
 set smartcase                                   "小文字で検索時、大文字小文字を無視する
 "set relativenumber                              " 行番号をカーソルからの相対指定にする
 set nowrap                                      " 行の折り返しを無効にする
-set clipboard+=unnamed                          " ヤンク時にクリップボードにもコピーする
 
 " 括弧
 set showmatch                                   "括弧入力時の対応する括弧を表示
