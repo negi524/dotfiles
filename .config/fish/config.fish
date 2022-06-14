@@ -11,7 +11,7 @@ case Linux
 case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
-  eval (pyenv init --path)
+  eval (pyenv init --path | source)
 
   # node用の設定
   set -x PATH $HOME/.nodebrew/current/bin $PATH
