@@ -13,8 +13,8 @@ case Darwin
   # pyenv用の設定
   eval (pyenv init --path | source)
 
-  # node用の設定
-  set -x PATH $HOME/.nodebrew/current/bin $PATH
+  # Javaの設定
+  set -x JAVA_HOME (/usr/libexec/java_home -v 18)
 
   # 独自コマンドのパスを通す
   set -x PATH $PATH ~/dotfiles/bin
