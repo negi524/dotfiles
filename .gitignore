@@ -8,6 +8,4 @@ downloads/
 
 tmp/*
 
-# iTerm2用の設定ファイルを格納する
-iTerm2/*
 !.gitkeep

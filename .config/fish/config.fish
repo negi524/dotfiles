@@ -12,7 +12,7 @@ case Darwin
   set OS 'Mac OS'
   # pyenv用の設定
   eval (pyenv init --path | source)
-  
+
   # Javaのデフォルトバージョンを18で指定
   set -x JAVA_HOME (/usr/libexec/java_home -v 18)
 
