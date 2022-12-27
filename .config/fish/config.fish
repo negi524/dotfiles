@@ -13,7 +13,7 @@ case Darwin
   # pyenv用の設定
   eval (pyenv init --path | source)
 
-  # Javaの設定
+  # Javaのデフォルトバージョンを18で指定
   set -x JAVA_HOME (/usr/libexec/java_home -v 18)
 
   # 独自コマンドのパスを通す
