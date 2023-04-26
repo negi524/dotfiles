@@ -10,7 +10,7 @@ function neovim_setting () {
   done
 
   # シンボリックリンクを作成
-  local NVIM_FILES=(".config/nvim/init.vim")
+  local NVIM_FILES=(".config/nvim/init.lua")
   NVIM_FILES+=(".config/nvim/*.vim")
   for file in ${NVIM_FILES[@]}
   do
