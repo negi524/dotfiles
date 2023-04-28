@@ -3,6 +3,8 @@ set -eu
 
 DOTPATH="${HOME}/dotfiles"
 
+. ${DOTPATH}/etc/logger.sh
+
 cd ${DOTPATH}
 
 # 必要なコマンドがインストールされているかチェックする
@@ -30,7 +32,7 @@ function download_nvim_color() {
 
   echo 'install color scheme for Neovim'
 
-  if [ ! -f ${NVIM_COLOR_DIR} ]; then
+  if [ ! -f ${NVIM_COLOR_DIR}/hybrid.vim ]; then
     wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -P ${NVIM_COLOR_DIR}/
   else
     echo 'hybrid.vim is already installed.'
