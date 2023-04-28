@@ -28,6 +28,8 @@ function download_nvim_color() {
   # Neovim用カラースキームの保存先
   local NVIM_COLOR_DIR="${HOME}/.config/nvim/colors"
 
+  echo 'install color scheme for Neovim'
+
   if [ ! -f ${NVIM_COLOR_DIR} ]; then
     wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -P ${NVIM_COLOR_DIR}/
   else
