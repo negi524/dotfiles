@@ -1,3 +1,5 @@
+-- カラースキームに関する設定ファイル
+
 -- 対応括弧の色
 vim.api.nvim_create_autocmd({"ColorScheme"},{
   pattern = {"*"},
