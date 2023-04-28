@@ -22,6 +22,10 @@ vim.opt.hlsearch = true                           -- 検索ワードのハイラ
 -- netrw
 vim.g.netrw_preview = 1                           -- プレビューウィンドウを垂直分割で表示する
 
+-- 目印桁
+vim.opt.signcolumn = 'yes'                        -- 目印桁を常に表示する
+
+
 -- カラースキームの読み込みと設定
 require('colors')
 
