@@ -1,5 +1,4 @@
--- TODO: プラグイン設定
-
+-- 基本設定
 vim.opt.number = true                             -- 行番号を表示
 vim.opt.title = true                              -- ファイル名を表示
 vim.opt.smartcase = true                          -- 小文字で検索時、大文字小文字を無視する
@@ -23,7 +22,10 @@ vim.opt.hlsearch = true                           -- 検索ワードのハイラ
 -- netrw
 vim.g.netrw_preview = 1                           -- プレビューウィンドウを垂直分割で表示する
 
--- プラグイン
+-- カラースキームの読み込みと設定
+require('colors')
+
+-- プラグイン設定
 require('plugins')
 
 vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
