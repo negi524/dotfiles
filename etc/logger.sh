@@ -18,12 +18,12 @@ function log () {
   done
 
   # オプション指定を位置パラメータから削除する
-  shift $(expr $OPTIND - 1)
-  # shift `expr $OPTIND - 1`
+  shift `expr $OPTIND - 1`
 
   local msg=$1
 
-  format_log ${level} ${msg}
+  # メッセージは空白文字が入っている可能性があるため、一つの文字列として渡す
+  format_log ${level} "${msg}"
 }
 
 # 色をつけて文字を出力する

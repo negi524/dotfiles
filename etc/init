@@ -3,15 +3,17 @@ set -eu
 
 DOTPATH="${HOME}/dotfiles"
 
+. ${DOTPATH}/etc/logger.sh
+
 cd ${DOTPATH}
 
 # 必要なコマンドがインストールされているかチェックする
 function check_command() {
   if !(type "wget" > /dev/null 2>&1); then
-    echo 'wget command is not exist'
+    log -l error "wget command is not exist"
     exit 1
   else
-    echo 'all necessary commands are already installd!'
+    log "all necessary commands are already installd!"
   fi
 }
 
@@ -28,31 +30,32 @@ function download_nvim_color() {
   # Neovim用カラースキームの保存先
   local NVIM_COLOR_DIR="${HOME}/.config/nvim/colors"
 
-  echo 'install color scheme for Neovim'
+  log "install color scheme for Neovim"
 
-  if [ ! -f ${NVIM_COLOR_DIR} ]; then
+  if [ ! -f ${NVIM_COLOR_DIR}/hybrid.vim ]; then
     wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -P ${NVIM_COLOR_DIR}/
   else
-    echo 'hybrid.vim is already installed.'
+    log "hybrid.vim is already installed."
   fi
 }
 
 # Neovimのプラグインマネージャーをインストールする
 function download_packer_nvim() {
   local PACKER_DIR="${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  echo 'install packer.nvim'
+
+  log "install packer.nvim"
 
   if [ ! -d ${PACKER_DIR} ]; then
     git clone --depth 1 https://github.com/wbthomason/packer.nvim ${PACKER_DIR}
   else
-    echo 'packer.nvim is already installed.'
+    log "packer.nvim is already installed."
   fi
 }
 
 function fzf_install() {
   # fzfコマンドのインストール
   if !(type fzf > /dev/null 2>&1); then
-    echo 'install fzf...'
+    log "install fzf..."
     # Macの場合はhomebrewを使ってインストールする
     case "$(uname)" in
       'Darwin')
