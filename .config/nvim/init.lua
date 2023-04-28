@@ -22,3 +22,8 @@ vim.opt.hlsearch = true                           -- 検索ワードのハイラ
 
 -- netrw
 vim.g.netrw_preview = 1                           -- プレビューウィンドウを垂直分割で表示する
+
+-- プラグイン
+require('plugins')
+
+vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
