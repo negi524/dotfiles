@@ -5,11 +5,33 @@ DOTPATH="${HOME}/dotfiles"
 
 cd ${DOTPATH}
 
+# 必要なコマンドがインストールされているかチェックする
+function check_command() {
+  if !(type "wget" > /dev/null 2>&1); then
+    echo 'wget command is not exist'
+    exit 1
+  else
+    echo 'all necessary commands are already installd!'
+  fi
+}
+
 # カラースキームのデータをダウンロードする
 function download_vim_color() {
   # hybridのカラースキームをダウンロードする
   if [ ! -f ${DOTPATH}/.vim/colors/hybrid.vim ]; then
     wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -P ${DOTPATH}/.vim/colors/
+  fi
+}
+
+# Neovim用のカラースキームデータをダウンロードする
+function download_nvim_color() {
+  # Neovim用カラースキームの保存先
+  local NVIM_COLOR_DIR="${HOME}/.config/nvim/colors"
+
+  if [ ! -f ${NVIM_COLOR_DIR} ]; then
+    wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -P ${NVIM_COLOR_DIR}/
+  else
+    echo 'hybrid.vim is already installed.'
   fi
 }
 
@@ -45,8 +67,14 @@ function fzf_install() {
 # main関数
 # インストールなどの初期設定のみを行う
 function main () {
+  # コマンドの存在チェク
+  check_command
+
   # vimのカラースキームをダウンロード
   # download_vim_color
+
+  # Neovimのカラースキームをインストール
+  download_nvim_color
 
   # Neovimのプラグインマネージャーをインストール
   download_packer_nvim
