@@ -7,9 +7,6 @@ case "$(uname)" in
         "https://www.google.com/search?q=${WORD}"
       echo "Now googling ${WORD}..."
     }
-    ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-    export PATH="~/.rd/bin:$PATH"
-    ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
     ;;
   'Linux')
     ;;
