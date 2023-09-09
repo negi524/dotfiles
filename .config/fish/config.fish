@@ -20,9 +20,9 @@ case Darwin
   set -x PATH $PATH ~/dotfiles/bin
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# set --export --prepend PATH "/Users/negita/.rd/bin"
   set -x PATH $PATH ~/.rd/bin
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+  set -x PATH $PATH /opt/homebrew/bin
 
   # コマンドラインからググるコマンド
   function gg
