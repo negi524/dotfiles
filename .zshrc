@@ -14,9 +14,11 @@ source ~/.zplug/init.zsh
 
 # 履歴からコマンドを補完する
 zplug "zsh-users/zsh-autosuggestions"
-
 # zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#875fff,bg=#9e9e9e,bold"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bg=#44375e,bold"
+
+# シンタックスハイライト
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
