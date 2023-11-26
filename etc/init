@@ -70,7 +70,7 @@ function download_git_prompt() {
 
   if [ ! -f ${GIT_PROMPT_FILE} ]; then
     log "install git-prompt"
-    curl -sL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+    curl -sL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ${HOME}/.git-prompt.sh
   else
     log "git-prompt is already installed."
   fi
@@ -79,17 +79,9 @@ function download_git_prompt() {
 function fzf_install() {
   # fzfコマンドのインストール
   if !(type fzf > /dev/null 2>&1); then
-    log "install fzf..."
-    # Macの場合はhomebrewを使ってインストールする
-    case "$(uname)" in
-      'Darwin')
-        brew install fzf
-        ;;
-      *)
-        git clone --depth 1 https://github.com/junegunn/fzf.git ${DOTPATH}/downloads/.fzf
-        ${DOTPATH}/downloads/.fzf/install
-        ;;
-    esac
+    log "install fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ${HOME}/.fzf
+    ${HOME}/.fzf/install
   fi
 }
 

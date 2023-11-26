@@ -18,3 +18,8 @@ fi
 if [ -d ${HOME}/.config/fish ]; then
   rm -i ${HOME}/.config/fish/config.fish
 fi
+
+# ダウンロードしたgit-prompt.shを削除
+if [ -f ${HOME}/.git-prompt.sh ]; then
+  rm -i ${HOME}/.git-prompt.sh
+fi

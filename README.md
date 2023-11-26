@@ -3,6 +3,7 @@
 開発環境管理
 
 - bash
+- zsh
 - fish
 - vim
 - tmux
@@ -113,6 +114,7 @@ $ fisher add jethrokuan/fzf
 |:-------------------------------------:|:--------------------------:|
 | [zsh-users/zsh-autosuggestions][]     | 履歴からコマンドを補完する |
 | [zsh-users/zsh-syntax-highlighting][] | シンタックスハイライト     |
+| [junegunn/fzf][]                      | あいまい検索をする         |
 
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
@@ -122,3 +124,4 @@ $ fisher add jethrokuan/fzf
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
 [zsh-users/zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting/tree/master
+[junegunn/fzf]: https://github.com/junegunn/fzf
