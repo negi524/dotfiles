@@ -54,18 +54,10 @@ function download_packer_nvim() {
 
 # zshのプラグインマネージャーをインストールする
 function download_zsh_plugin_manager() {
-  log "install zplug"
-
-  case "$(uname)" in
-    'Darwin')
-      # Macの場合はhomebrewを使ってインストールする
-      brew install zplug
-      ;;
-    *)
-      # それ以外の場合はインストーラーを使ってインストール
-      curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-      ;;
-  esac
+  if !(type zplug > /dev/null 2>&1); then
+    log "install zplug"
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  fi
 }
 
 function fzf_install() {
@@ -91,7 +83,7 @@ function main () {
   # コマンドの存在チェク
   check_command
 
-  # zsh用のプラグインマネージャーをインストール
+  # zshのプラグインマネージャーをインストールする
   download_zsh_plugin_manager
 
   # vimのカラースキームをダウンロード
