@@ -52,20 +52,36 @@ function download_packer_nvim() {
   fi
 }
 
+# zshのプラグインマネージャーをインストールする
+function download_zsh_plugin_manager() {
+  local ZPLUG_DIR="${HOME}/.zplug"
+
+  if [ ! -d ${ZPLUG_DIR} ]; then
+    log "install zplug"
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  else
+    log "zplug is already installed."
+  fi
+}
+
+# プロンプトにgitの情報を出力するためのスクリプトをダウンロード
+function download_git_prompt() {
+  local GIT_PROMPT_FILE="${HOME}/.git-prompt.sh"
+
+  if [ ! -f ${GIT_PROMPT_FILE} ]; then
+    log "install git-prompt"
+    curl -sL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ${HOME}/.git-prompt.sh
+  else
+    log "git-prompt is already installed."
+  fi
+}
+
 function fzf_install() {
   # fzfコマンドのインストール
   if !(type fzf > /dev/null 2>&1); then
-    log "install fzf..."
-    # Macの場合はhomebrewを使ってインストールする
-    case "$(uname)" in
-      'Darwin')
-        brew install fzf
-        ;;
-      *)
-        git clone --depth 1 https://github.com/junegunn/fzf.git ${DOTPATH}/downloads/.fzf
-        ${DOTPATH}/downloads/.fzf/install
-        ;;
-    esac
+    log "install fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ${HOME}/.fzf
+    ${HOME}/.fzf/install
   fi
 }
 
@@ -74,6 +90,12 @@ function fzf_install() {
 function main () {
   # コマンドの存在チェク
   check_command
+
+  # zshのプラグインマネージャーをインストールする
+  download_zsh_plugin_manager
+
+  # git-promptをインストールする
+  download_git_prompt
 
   # vimのカラースキームをダウンロード
   # download_vim_color

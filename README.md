@@ -3,6 +3,7 @@
 開発環境管理
 
 - bash
+- zsh
 - fish
 - vim
 - tmux
@@ -101,8 +102,26 @@ iTerm2 で利用する設定ファイルを配置
 $ fisher add jethrokuan/fzf
 ```
 
+## zsh
+
+### plugin manager
+
+[zplug/zplug][]
+
+### plugin for zsh
+
+|                 名称                  |            説明            |
+|:-------------------------------------:|:--------------------------:|
+| [zsh-users/zsh-autosuggestions][]     | 履歴からコマンドを補完する |
+| [zsh-users/zsh-syntax-highlighting][] | シンタックスハイライト     |
+| [junegunn/fzf][]                      | あいまい検索をする         |
+
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
 [posva/vim-vue]: https://github.com/posva/vim-vue
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [w0ng/vim-hybrid]: https://github.com/w0ng/vim-hybrid
+[zplug/zplug]: https://github.com/zplug/zplug
+[zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
+[zsh-users/zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting/tree/master
+[junegunn/fzf]: https://github.com/junegunn/fzf
