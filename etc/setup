@@ -13,7 +13,7 @@ cd ${DOTPATH}
 # 全ての設定ファイルに対してシンボリックリンクを作成する
 function main () {
 
-  local DOTLIST=(".vimrc" ".bash_profile")
+  local DOTLIST=(".vimrc" ".bash_profile" ".zprofile" ".zshrc")
   DOTLIST+=(".bashrc")
   DOTLIST+=(".tmux.conf")
 
