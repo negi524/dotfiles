@@ -54,9 +54,25 @@ function download_packer_nvim() {
 
 # zshのプラグインマネージャーをインストールする
 function download_zsh_plugin_manager() {
-  if !(type zplug > /dev/null 2>&1); then
+  local ZPLUG_DIR="${HOME}/.zplug"
+
+  if [ ! -d ${ZPLUG_DIR} ]; then
     log "install zplug"
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  else
+    log "zplug is already installed."
+  fi
+}
+
+# プロンプトにgitの情報を出力するためのスクリプトをダウンロード
+function download_git_prompt() {
+  local GIT_PROMPT_FILE="${HOME}/.git-prompt.sh"
+
+  if [ ! -f ${GIT_PROMPT_FILE} ]; then
+    log "install git-prompt"
+    curl -sL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+  else
+    log "git-prompt is already installed."
   fi
 }
 
@@ -85,6 +101,9 @@ function main () {
 
   # zshのプラグインマネージャーをインストールする
   download_zsh_plugin_manager
+
+  # git-promptをインストールする
+  download_git_prompt
 
   # vimのカラースキームをダウンロード
   # download_vim_color
