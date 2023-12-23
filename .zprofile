@@ -18,3 +18,6 @@ esac
 
 # 独自コマンドのパスを通す
 export PATH=$PATH:~/dotfiles/bin
+
+# ctrl+wで一つ前のスラッシュまで削除する
+export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>'
