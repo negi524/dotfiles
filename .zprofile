@@ -16,6 +16,9 @@ case $(uname) in
   ;;
 esac
 
+# Rancher Desktop用のパスを設定
+export PATH="$PATH:~/.rd/bin"
+
 # 独自コマンドのパスを通す
 export PATH=$PATH:~/dotfiles/bin
 
