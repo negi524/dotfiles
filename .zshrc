@@ -41,3 +41,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="~/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
