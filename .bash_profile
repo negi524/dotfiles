@@ -17,6 +17,5 @@ else
   echo "exec bash!"
 fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="~/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Rancher Desktop用のパスを設定
+export PATH="$PATH:~/.rd/bin"

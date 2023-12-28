@@ -19,10 +19,8 @@ case Darwin
   # 独自コマンドのパスを通す
   set -x PATH $PATH ~/dotfiles/bin
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# set --export --prepend PATH "/Users/negita/.rd/bin"
-  set -x PATH $PATH ~/.rd/bin
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Rancher Desktop用のパスを設定
+set --export --prepend PATH "~/.rd/bin"
 
   # コマンドラインからググるコマンド
   function gg
