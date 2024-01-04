@@ -18,4 +18,4 @@ else
 fi
 
 # Rancher Desktop用のパスを設定
-export PATH="$PATH:~/.rd/bin"
+export PATH="$PATH:$HOME/.rd/bin"
