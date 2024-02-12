@@ -12,6 +12,10 @@ alias la='ls -laGF'
 # fnmの有効化
 eval "$(fnm env --use-on-cd)"
 
+# GoodleCloudの有効化
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
 # git-promptの設定
 source ~/.git-prompt.sh
 
