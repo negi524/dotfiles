@@ -65,28 +65,7 @@ iTerm2 で利用する設定ファイルを配置
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
-| [tpope/vim-fugitive][] |       git を便利にする       |
-|   [posva/vim-vue][]    | vue のシンタックスハイライト |
-|   [w0ng/vim-hybrid][]  | カラースキーム               |
 
-### Vim コマンド
-
-#### install vim plugin
-
-```
-:PlugInstall
-```
-
-#### create code tags
-
-```
-:Maketag
-```
-
-`~/dotfiles/tmp/tags` にタグを生成する。
-
-- `Ctrl + ]`: 宣言元へジャンプ
-- `Ctrl + o`: 戻る
 
 ## fish
 
