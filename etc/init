@@ -77,9 +77,11 @@ function main () {
   download_git_prompt
 
   # vimのカラースキームをダウンロード
+  # TODO: 削除
   # download_vim_color
 
   # Neovimのカラースキームをインストール
+  # TODO: 削除
   # download_nvim_color
 
   # fzfのインストール
