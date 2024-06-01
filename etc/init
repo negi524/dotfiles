@@ -17,14 +17,6 @@ function check_command() {
   fi
 }
 
-# カラースキームのデータをダウンロードする
-function download_vim_color() {
-  # hybridのカラースキームをダウンロードする
-  if [ ! -f ${DOTPATH}/.vim/colors/hybrid.vim ]; then
-    wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -P ${DOTPATH}/.vim/colors/
-  fi
-}
-
 # Neovim用のカラースキームデータをダウンロードする
 function download_nvim_color() {
   # Neovim用カラースキームの保存先
@@ -88,7 +80,7 @@ function main () {
   # download_vim_color
 
   # Neovimのカラースキームをインストール
-  download_nvim_color
+  # download_nvim_color
 
   # fzfのインストール
   fzf_install
