@@ -1,6 +1,10 @@
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'vim-jp/vimdoc-ja'
-end)
+return {
+  'vim-jp/vimdoc-ja',
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+    init = function()
+      require('Comment').setup()
+    end,
+  }
+}

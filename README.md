@@ -58,13 +58,14 @@ iTerm2 で利用する設定ファイルを配置
 ## Vim
 
 - color scheme : hybrid
-- plugin : vim-plug
+- plugin manager : [lazy.nvim][]
 
 ### plugin for Vim
 
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
+|  [Comment.nvim][]      |     簡単にコメントアウト     |
 
 
 ## fish
@@ -95,7 +96,9 @@ $ fisher add jethrokuan/fzf
 | [zsh-users/zsh-syntax-highlighting][] | シンタックスハイライト     |
 | [junegunn/fzf][]                      | あいまい検索をする         |
 
+[lazy.nvim]: (https://github.com/folke/lazy.nvim)
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
+[Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
 [posva/vim-vue]: https://github.com/posva/vim-vue
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf

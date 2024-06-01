@@ -22,10 +22,23 @@ vim.opt.hlsearch = true                           -- 検索ワードのハイラ
 -- netrw
 vim.g.netrw_preview = 1                           -- プレビューウィンドウを垂直分割で表示する
 
+vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
+
 -- カラースキームの読み込みと設定
 require('colors')
 
 -- プラグイン設定
-require('plugins')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require('lazy').setup('plugins')
 
-vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
