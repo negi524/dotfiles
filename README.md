@@ -65,6 +65,7 @@ iTerm2 で利用する設定ファイルを配置
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
+|  [Comment.nvim][]      |     簡単にコメントアウト     |
 
 
 ## fish
@@ -97,6 +98,7 @@ $ fisher add jethrokuan/fzf
 
 [lazy.nvim]: (https://github.com/folke/lazy.nvim)
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
+[Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
 [posva/vim-vue]: https://github.com/posva/vim-vue
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
