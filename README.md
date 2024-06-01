@@ -58,7 +58,7 @@ iTerm2 で利用する設定ファイルを配置
 ## Vim
 
 - color scheme : hybrid
-- plugin : vim-plug
+- plugin manager : [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ### plugin for Vim
 
