@@ -4,8 +4,7 @@
 
 - bash
 - zsh
-- fish
-- vim
+- Neovim
 - tmux
 - iTerm2
 
@@ -100,11 +99,8 @@ $ fisher add jethrokuan/fzf
 [lazy.nvim]: (https://github.com/folke/lazy.nvim)
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
 [Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
-[tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
-[posva/vim-vue]: https://github.com/posva/vim-vue
-[jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [onedark.nvim]: (https://github.com/navarasu/onedark.nvim)
-[w0ng/vim-hybrid]: https://github.com/w0ng/vim-hybrid
+[jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
 [zsh-users/zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting/tree/master
