@@ -66,6 +66,7 @@ iTerm2 で利用する設定ファイルを配置
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
 |  [Comment.nvim][]      |     簡単にコメントアウト     |
 |  [onedark.nvim][]      |       カラースキーマ         |
+|  [nvim-tree.lua][]     |           ファイラ           |
 
 
 ## fish
@@ -100,6 +101,7 @@ $ fisher add jethrokuan/fzf
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
 [Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
 [onedark.nvim]: (https://github.com/navarasu/onedark.nvim)
+[nvim-tree.lua]: (https://github.com/nvim-tree/nvim-tree.lua)
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
