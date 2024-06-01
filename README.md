@@ -60,12 +60,13 @@ iTerm2 で利用する設定ファイルを配置
 - color scheme : hybrid
 - plugin manager : [lazy.nvim][]
 
-### plugin for Vim
+### plugin for Neovim
 
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
 |  [Comment.nvim][]      |     簡単にコメントアウト     |
+|  [onedark.nvim][]      |       カラースキーマ         |
 
 
 ## fish
@@ -102,6 +103,7 @@ $ fisher add jethrokuan/fzf
 [tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
 [posva/vim-vue]: https://github.com/posva/vim-vue
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
+[onedark.nvim]: (https://github.com/navarasu/onedark.nvim)
 [w0ng/vim-hybrid]: https://github.com/w0ng/vim-hybrid
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
