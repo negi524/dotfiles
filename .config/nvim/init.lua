@@ -24,8 +24,6 @@ vim.g.netrw_preview = 1                           -- プレビューウィンド
 
 vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
 
--- カラースキームの読み込みと設定
-require('colors')
 
 -- プラグイン設定
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

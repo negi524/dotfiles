@@ -4,8 +4,7 @@
 
 - bash
 - zsh
-- fish
-- vim
+- Neovim
 - tmux
 - iTerm2
 
@@ -60,12 +59,13 @@ iTerm2 で利用する設定ファイルを配置
 - color scheme : hybrid
 - plugin manager : [lazy.nvim][]
 
-### plugin for Vim
+### plugin for Neovim
 
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
 |  [vim-jp/vimdoc-ja][]  |       ヘルプの日本語化       |
 |  [Comment.nvim][]      |     簡単にコメントアウト     |
+|  [onedark.nvim][]      |       カラースキーマ         |
 
 
 ## fish
@@ -99,10 +99,8 @@ $ fisher add jethrokuan/fzf
 [lazy.nvim]: (https://github.com/folke/lazy.nvim)
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
 [Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
-[tpope/vim-fugitive]: https://github.com/tpope/vim-fugitive
-[posva/vim-vue]: https://github.com/posva/vim-vue
+[onedark.nvim]: (https://github.com/navarasu/onedark.nvim)
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
-[w0ng/vim-hybrid]: https://github.com/w0ng/vim-hybrid
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
 [zsh-users/zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting/tree/master

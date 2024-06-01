@@ -23,7 +23,7 @@ function main () {
   done
 
   # vim --------------------------------------
-  vim_setting
+  # vim_setting
 
   # Neovim -----------------------------------
   neovim_setting

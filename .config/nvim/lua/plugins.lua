@@ -6,5 +6,11 @@ return {
     init = function()
       require('Comment').setup()
     end,
-  }
+  },
+  {
+    'navarasu/onedark.nvim',
+    init = function()
+      require('onedark').load()
+    end,
+  },
 }
