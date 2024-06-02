@@ -23,15 +23,17 @@ function main () {
   done
 
   # vim --------------------------------------
+  # TODO: 削除
   # vim_setting
 
   # Neovim -----------------------------------
   neovim_setting
 
   # fish -------------------------------------
-  if type fish > /dev/null 2>&1; then
-    fish_setting
-  fi
+  # TODO: 削除
+  # if type fish > /dev/null 2>&1; then
+  #   fish_setting
+  # fi
 }
 
 # vimの設定を行う関数

@@ -11,7 +11,6 @@ function neovim_setting () {
 
   # シンボリックリンクを作成
   local NVIM_FILES=(".config/nvim/init.lua")
-  NVIM_FILES+=(".config/nvim/**/*.lua")
   NVIM_FILES+=(".config/nvim/lua/plugins")
   for file in ${NVIM_FILES[@]}
   do
