@@ -67,6 +67,7 @@ iTerm2 で利用する設定ファイルを配置
 |  [Comment.nvim][]      |     簡単にコメントアウト     |
 |  [onedark.nvim][]      |       カラースキーマ         |
 |  [nvim-tree.lua][]     |           ファイラ           |
+|  [diffview.nvim][]     |          差分を確認          |
 
 
 ## fish
@@ -103,6 +104,7 @@ $ fisher add jethrokuan/fzf
 [Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
 [onedark.nvim]: (https://github.com/navarasu/onedark.nvim)
 [nvim-tree.lua]: (https://github.com/nvim-tree/nvim-tree.lua)
+[diffview.nvim]: (https://github.com/sindrets/diffview.nvim)
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
