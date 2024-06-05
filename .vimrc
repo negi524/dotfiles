@@ -14,7 +14,6 @@ set matchtime=1                                 "対応括弧に飛ぶ時間を0
 " ステータスライン
 set laststatus=2                                " ステータスラインを常に表示する
 set statusline=%F                               " ファイル名表示
-let &statusline .= ' [%{cfi#format("%s", "")}]' " 関数名表示
 set statusline+=%r                              " 読み込み専用かどうかを表示
 set statusline+=%=                              " これ以降は右寄せ表示
 set statusline+=[BF=%n]                         " バッファ番号
