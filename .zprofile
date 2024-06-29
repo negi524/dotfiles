@@ -19,6 +19,10 @@ esac
 # Rancher Desktop用のパスを設定
 export PATH="$PATH:$HOME/.rd/bin"
 
+# Flutter
+# Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
+export PATH=$HOME/development/flutter/bin:$PATH
+
 # 独自コマンドのパスを通す
 export PATH=$PATH:~/dotfiles/bin
 
