@@ -23,7 +23,7 @@ export PATH="$PATH:$HOME/.rd/bin"
 # Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
 export PATH=$HOME/development/flutter/bin:$PATH
 
-# Firebase
+# firebase-tools
 export PATH=$PATH:$HOME/.pub-cache/bin
 
 # 独自コマンドのパスを通す
