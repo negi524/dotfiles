@@ -99,12 +99,12 @@ $ fisher add jethrokuan/fzf
 | [junegunn/fzf][]                      | あいまい検索をする         |
 
 
-[lazy.nvim]: (https://github.com/folke/lazy.nvim)
+[lazy.nvim]: https://github.com/folke/lazy.nvim
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
-[Comment.nvim]: (https://github.com/numToStr/Comment.nvim)
-[onedark.nvim]: (https://github.com/navarasu/onedark.nvim)
-[nvim-tree.lua]: (https://github.com/nvim-tree/nvim-tree.lua)
-[diffview.nvim]: (https://github.com/sindrets/diffview.nvim)
+[Comment.nvim]: https://github.com/numToStr/Comment.nvim
+[onedark.nvim]: https://github.com/navarasu/onedark.nvim
+[nvim-tree.lua]: https://github.com/nvim-tree/nvim-tree.lua
+[diffview.nvim]: https://github.com/sindrets/diffview.nvim
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
