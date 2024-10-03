@@ -14,6 +14,11 @@ case $(uname) in
     # Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
     export PATH=$HOME/development/flutter/bin:$PATH
 
+    # Ruby
+    export RBENV_ROOT="$HOME/.rbenv"
+    export PATH="$RBENV_ROOT/bin:$PATH"
+    eval "$(rbenv init -)"
+
   ;;
   * )
     # その他のOSの場合
