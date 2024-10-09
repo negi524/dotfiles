@@ -9,6 +9,16 @@ case $(uname) in
 
     # Javaのデフォルトバージョンを18で指定
     export JAVA_HOME=$(/usr/libexec/java_home -v 18)
+
+    # Flutter
+    # Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
+    export PATH=$HOME/development/flutter/bin:$PATH
+
+    # Ruby
+    export RBENV_ROOT="$HOME/.rbenv"
+    export PATH="$RBENV_ROOT/bin:$PATH"
+    eval "$(rbenv init -)"
+
   ;;
   * )
     # その他のOSの場合
@@ -18,10 +28,6 @@ esac
 
 # Rancher Desktop用のパスを設定
 export PATH="$PATH:$HOME/.rd/bin"
-
-# Flutter
-# Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
-export PATH=$HOME/development/flutter/bin:$PATH
 
 # firebase-tools
 export PATH=$PATH:$HOME/.pub-cache/bin
