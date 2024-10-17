@@ -23,6 +23,18 @@ git clone git@github.com:negi524/dotfiles.git
 ~/dotfiles/etc/init
 ```
 
+## gitの設定
+gitのアカウントと鍵を作成する。
+以下のエイリアスはdotfilesで管理できていないので、手打ちする。
+
+```bash
+git config --global alias.st status
+git config --global alias.co commit
+git config --global alias.br branch
+git config --global alias.ch checkout
+git config --global alias.df diff
+```
+
 ## 設定の構築
 
 各種設定を反映する
