@@ -118,10 +118,6 @@ $ fisher add jethrokuan/fzf
 ### Installation
 
 ```bash
-brew install zplug
-```
-
-```bash
 zplug install
 ```
 
