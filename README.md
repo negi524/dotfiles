@@ -59,7 +59,7 @@ iTerm2 で利用する設定ファイルを配置
 - color scheme : onedark
 - plugin manager : [lazy.nvim][]
 
-### plugin for Neovim
+### Plugin for Neovim
 
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
@@ -86,11 +86,11 @@ $ fisher add jethrokuan/fzf
 
 ## zsh
 
-### plugin manager
+### Plugin manager
 
 [zplug/zplug][]
 
-### plugin for zsh
+### Plugin for zsh
 
 |                 名称                  |            説明            |
 |:-------------------------------------:|:--------------------------:|
@@ -98,6 +98,15 @@ $ fisher add jethrokuan/fzf
 | [zsh-users/zsh-syntax-highlighting][] | シンタックスハイライト     |
 | [junegunn/fzf][]                      | あいまい検索をする         |
 
+### Installation
+
+```bash
+brew install zplug
+```
+
+```bash
+zplug install
+```
 
 [lazy.nvim]: https://github.com/folke/lazy.nvim
 [vim-jp/vimdoc-ja]: https://github.com/vim-jp/vimdoc-ja
