@@ -23,7 +23,12 @@ git clone git@github.com:negi524/dotfiles.git
 ~/dotfiles/etc/init
 ```
 
+## Homebrewの設定
+
+Homebrewをインストールし、brewコマンドが利用可能な状態にしておく。
+
 ## gitの設定
+
 gitのアカウントと鍵を作成する。
 以下のエイリアスはdotfilesで管理できていないので、手打ちする。
 
