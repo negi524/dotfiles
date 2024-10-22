@@ -14,11 +14,6 @@ if [ -f $HOME}/.bash_profile ]; then
   rm -i ${HOME}/.bash_profile
 fi
 
-# fishの設定ディレクトリがある場合のみfishディレクトリ配下を削除
-if [ -d ${HOME}/.config/fish ]; then
-  rm -i ${HOME}/.config/fish/config.fish
-fi
-
 # ダウンロードしたgit-prompt.shを削除
 if [ -f ${HOME}/.git-prompt.sh ]; then
   rm -i ${HOME}/.git-prompt.sh

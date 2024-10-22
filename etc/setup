@@ -4,7 +4,6 @@ set -eu
 DOTPATH="${HOME}/dotfiles"
 
 . ${DOTPATH}/etc/logger.sh
-. ${DOTPATH}/etc/fish_setting.sh
 . ${DOTPATH}/etc/neovim_setting.sh
 
 cd ${DOTPATH}
@@ -28,12 +27,6 @@ function main () {
 
   # Neovim -----------------------------------
   neovim_setting
-
-  # fish -------------------------------------
-  # TODO: 削除
-  # if type fish > /dev/null 2>&1; then
-  #   fish_setting
-  # fi
 }
 
 # vimの設定を行う関数
