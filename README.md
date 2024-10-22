@@ -87,20 +87,6 @@ iTerm2 で利用する設定ファイルを配置
 |  [diffview.nvim][]     |          差分を確認          |
 
 
-## fish
-
-### plugin for fish
-
-|        名称        |      説明      |
-| :----------------: | :------------: |
-| [jethrokuan/fzf][] | 曖昧検索をする |
-
-#### install fish plugin (deprecated)
-
-```
-$ fisher add jethrokuan/fzf
-```
-
 ## zsh
 
 ### Plugin manager
