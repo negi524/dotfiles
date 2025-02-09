@@ -7,11 +7,6 @@ case $(uname) in
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 
-    if type java > /dev/null 2>&1; then
-      # Javaのデフォルトバージョンを18で指定
-      export JAVA_HOME=$(/usr/libexec/java_home -v 18)
-    fi
-
     # Flutter
     if type flutter > /dev/null 2>&1; then
       # Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
