@@ -2,6 +2,9 @@ case $(uname) in
   "Darwin" )
     # MacOSの場合
 
+    # Homebrewの設定
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
     # pyenv用の設定
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
