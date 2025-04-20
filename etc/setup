@@ -12,13 +12,19 @@ cd ${DOTPATH}
 # 全ての設定ファイルに対してシンボリックリンクを作成する
 function main () {
 
-  local DOTLIST=(".vimrc" ".bash_profile" ".zprofile" ".zshrc" ".Brewfile")
+  local DOTLIST=(".vimrc" ".bash_profile" ".zprofile" ".zshrc")
   DOTLIST+=(".bashrc")
   DOTLIST+=(".tmux.conf")
 
   for var in ${DOTLIST[@]}
   do
     create_ln ${var}
+  done
+
+  local SYNCDOTLIST=(".Brewfile")
+  for var in ${SYNCDOTLIST[@]}
+  do
+    create_hard_ln ${var}
   done
 
   # Neovim -----------------------------------
@@ -32,6 +38,16 @@ function create_ln () {
   local FILE=$1
 
   ln -vsf ${DOTPATH}/${FILE} ${HOME}/${FILE}
+  return 0
+}
+
+# ハードリンクを貼る関数
+# 同じファイルが存在する場合、上書きする
+# $1: 対象ファイル
+function create_hard_ln () {
+  local FILE=$1
+
+  ln -vf ${DOTPATH}/${FILE} ${HOME}/${FILE}
   return 0
 }
 
