@@ -12,7 +12,6 @@ case $(uname) in
 
     # Flutter
     if type flutter > /dev/null 2>&1; then
-      # Flutterは手動インストール必要 https://docs.flutter.dev/get-started/install/macos/web
       export PATH=$HOME/development/flutter/bin:$PATH
     fi
 
