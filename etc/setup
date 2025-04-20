@@ -21,31 +21,8 @@ function main () {
     create_ln ${var}
   done
 
-  # vim --------------------------------------
-  # TODO: 削除
-  # vim_setting
-
   # Neovim -----------------------------------
   neovim_setting
-}
-
-# vimの設定を行う関数
-function vim_setting () {
-  log "vimの設定反映"
-
-  # vimの設定ディレクトリが存在しない場合は作成する
-  local VIM_DIRS=(".vim" ".vim/colors" ".vim/autoload")
-  for var in ${VIM_DIRS[@]}
-  do
-    set_dir ${var}
-  done
-
-  # シンボリックリンクを作成
-  local VIM_FILES=(".vim/colors/*.vim" ".vim/autoload/plug.vim")
-  for var in ${VIM_FILES[@]}
-  do
-    create_ln ${var}
-  done
 }
 
 # シンボリックリンクを貼る関数
