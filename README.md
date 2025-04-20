@@ -27,6 +27,14 @@ git clone git@github.com:negi524/dotfiles.git
 
 Homebrewをインストールし、brewコマンドが利用可能な状態にしておく。
 
+### Homebrewによりインストールされたパッケージを保存
+
+```bash
+brew bundle dump --no-vscode --force --file='~/dotfiles/.Brewfile'
+```
+
+※VSCodeの拡張機能は管理対象外とする
+
 ## gitの設定
 
 gitのアカウントと鍵を作成する。
