@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-brew "openssl@3"
 brew "awscli"
 brew "fnm"
 brew "jq"
