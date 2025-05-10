@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 brew "awscli"
+brew "ffmpeg"
 brew "fnm"
 brew "jq"
 brew "mysql"
