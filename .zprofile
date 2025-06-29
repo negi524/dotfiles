@@ -5,11 +5,6 @@ case $(uname) in
     # Homebrewの設定
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    # pyenv用の設定
-    export PYENV_ROOT="$HOME/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-
     # Flutter
     if type flutter > /dev/null 2>&1; then
       export PATH=$HOME/development/flutter/bin:$PATH
