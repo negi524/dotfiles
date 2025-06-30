@@ -10,13 +10,6 @@ case $(uname) in
       export PATH=$HOME/development/flutter/bin:$PATH
     fi
 
-    # Ruby
-    if type ruby > /dev/null 2>&1; then
-      export RBENV_ROOT="$HOME/.rbenv"
-      export PATH="$RBENV_ROOT/bin:$PATH"
-      eval "$(rbenv init -)"
-    fi
-
     if type firebase > /dev/null 2>&1; then
       # firebase-tools
       export PATH=$PATH:$HOME/.pub-cache/bin
