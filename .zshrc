@@ -23,6 +23,8 @@ alias la='ls -laGF'
 
 # fnmの有効化
 eval "$(fnm env --use-on-cd)"
+# miseの有効化
+eval "$(mise activate zsh)"
 
 # git-promptの設定
 source ~/.git-prompt.sh
@@ -53,8 +55,3 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Then, source plugins and add commands to $PATH
 zplug load
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-eval "$(mise activate zsh)"
