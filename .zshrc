@@ -23,6 +23,8 @@ alias la='ls -laGF'
 
 # miseの有効化
 eval "$(mise activate zsh)"
+# uvの補完設定
+eval "$(uv generate-shell-completion zsh)"
 
 # git-promptの設定
 source ~/.git-prompt.sh
