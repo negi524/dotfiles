@@ -15,6 +15,9 @@ case $(uname) in
       export PATH=$PATH:$HOME/.pub-cache/bin
     fi
 
+    # PostgreSQLのパスを通す
+    export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
   ;;
   * )
     # その他のOSの場合
