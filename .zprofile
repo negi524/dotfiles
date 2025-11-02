@@ -6,9 +6,9 @@ case $(uname) in
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
     # Flutter
-    if type flutter > /dev/null 2>&1; then
-      export PATH=$HOME/development/flutter/bin:$PATH
-    fi
+    # if type flutter > /dev/null 2>&1; then
+    #   export PATH=$HOME/development/flutter/bin:$PATH
+    # fi
 
     if type firebase > /dev/null 2>&1; then
       # firebase-tools
