@@ -52,7 +52,6 @@ function set_dir () {
 
 # Claude Skillsのシンボリックリンクを設定する関数
 function claude_skills_setting () {
-  local SKILLS_TARGET_DIR="${HOME}/.claude/skills"
   local SKILLS_SOURCE_DIR="${DOTPATH}/.claude/skills"
 
   # .claude/skillsディレクトリが存在しない場合は作成
@@ -63,7 +62,7 @@ function claude_skills_setting () {
     for skill_dir in ${SKILLS_SOURCE_DIR}/*/; do
       if [ -d "$skill_dir" ]; then
         local skill_name=$(basename "$skill_dir")
-        ln -vsf "$skill_dir" "${SKILLS_TARGET_DIR}/$skill_name"
+        ln -vsf ${SKILLS_SOURCE_DIR}/${skill_name} ${HOME}/.claude/skills/${skill_name}
       fi
     done
   fi
