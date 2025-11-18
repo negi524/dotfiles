@@ -24,6 +24,9 @@ function main () {
 
   # Neovim -----------------------------------
   neovim_setting
+
+  # Claude Skills ----------------------------
+  claude_skills_setting
 }
 
 # シンボリックリンクを貼る関数
@@ -42,9 +45,28 @@ function set_dir () {
   local DIR=$1
 
   if [ ! -d ${HOME}/${DIR} ]; then
-    mkdir ${HOME}/${DIR}
+    mkdir -p ${HOME}/${DIR}
   fi
   return 0
+}
+
+# Claude Skillsのシンボリックリンクを設定する関数
+function claude_skills_setting () {
+  local SKILLS_TARGET_DIR="${HOME}/.claude/skills"
+  local SKILLS_SOURCE_DIR="${DOTPATH}/.claude/skills"
+
+  # .claude/skillsディレクトリが存在しない場合は作成
+  set_dir ".claude/skills"
+
+  # dotfiles内のskillsディレクトリに対してシンボリックリンクを作成
+  if [ -d "${SKILLS_SOURCE_DIR}" ]; then
+    for skill_dir in ${SKILLS_SOURCE_DIR}/*/; do
+      if [ -d "$skill_dir" ]; then
+        local skill_name=$(basename "$skill_dir")
+        ln -vsf "$skill_dir" "${SKILLS_TARGET_DIR}/$skill_name"
+      fi
+    done
+  fi
 }
 
 # main関数実行
