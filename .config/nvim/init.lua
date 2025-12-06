@@ -21,8 +21,10 @@ vim.opt.hlsearch = true                           -- 検索ワードのハイラ
 vim.opt.cursorline = true                         -- 行全体をハイライトする
 vim.opt.cursorlineopt = 'number'                  -- 行ハイライトの設定
 
--- netrw
-vim.g.netrw_preview = 1                           -- プレビューウィンドウを垂直分割で表示する
+-- nvim-treeのためにnetrwを無効化
+-- https://github.com/nvim-tree/nvim-tree.lua
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
 
