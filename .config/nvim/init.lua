@@ -27,18 +27,5 @@ vim.g.netrw_preview = 1                           -- プレビューウィンド
 vim.opt.helplang = 'ja,en'                        -- ヘルプの言語を日本語優先にする
 
 
--- プラグイン設定
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-require('lazy').setup('plugins')
-
+-- プラグイン設定(lazy.nvim)
+require("config.lazy")

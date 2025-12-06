@@ -3,7 +3,7 @@ function neovim_setting () {
   log "Neovimの設定反映"
 
   # neovimの設定ディレクトリが存在しない場合は作成する
-  local NVIM_DIRS=(".config/nvim" ".config/nvim/lua" ".config/nvim/lua/plugins")
+  local NVIM_DIRS=(".config/nvim" ".config/nvim/lua" ".config/nvim/lua/config" ".config/nvim/lua/plugins")
   for directory in ${NVIM_DIRS[@]}
   do
     set_dir ${directory}
@@ -11,6 +11,7 @@ function neovim_setting () {
 
   # シンボリックリンクを作成
   local NVIM_FILES=(".config/nvim/init.lua")
+  NVIM_FILES+=(".config/nvim/lua/config/*.lua")
   NVIM_FILES+=(".config/nvim/lua/plugins/*.lua")
   for file in ${NVIM_FILES[@]}
   do

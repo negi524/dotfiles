@@ -39,12 +39,12 @@ function create_ln () {
   return 0
 }
 
-# 対象のディレクトリがない場合は作成する関数
+# ホームディレクトリ直下に対象のディレクトリがない場合は作成する関数
 # $1: 対象ディレクトリ
 function set_dir () {
   local DIR=$1
 
-  if [ ! -d ${HOME}/${DIR} ]; then
+  if [[ ! -d ${HOME}/${DIR} ]]; then
     mkdir -p ${HOME}/${DIR}
   fi
   return 0
@@ -52,20 +52,20 @@ function set_dir () {
 
 # Claude Skillsのシンボリックリンクを設定する関数
 function claude_skills_setting () {
-  local SKILLS_SOURCE_DIR="${DOTPATH}/.claude/skills"
-
-  # .claude/skillsディレクトリが存在しない場合は作成
+  # ホームディレクトリ直下に.claude/skillsディレクトリが存在しない場合は作成
   set_dir ".claude/skills"
 
-  # dotfiles内のskillsディレクトリに対してシンボリックリンクを作成
-  if [ -d "${SKILLS_SOURCE_DIR}" ]; then
-    for skill_dir in ${SKILLS_SOURCE_DIR}/*/; do
-      if [ -d "$skill_dir" ]; then
-        local skill_name=$(basename "$skill_dir")
-        ln -vsf ${SKILLS_SOURCE_DIR}/${skill_name} ${HOME}/.claude/skills/${skill_name}
-      fi
-    done
-  fi
+  SKILLS_DIR=("${DOTPATH}/.claude/skills/*")
+
+  for skill_dir in ${SKILLS_DIR[@]}
+  do
+    rel_path="${skill_dir#${DOTPATH}/}"   # 先頭の ${DOTPATH}/ を取り除く
+    if [[ ! -L ${HOME}/${rel_path} ]]; then
+      # シンボリックリンクが存在しないときのみ作成
+      echo "${DOTPATH}/${rel_path} ${HOME}/${rel_path}"
+      create_ln ${rel_path}
+    fi
+  done
 }
 
 # main関数実行
