@@ -24,7 +24,8 @@ return {
       "python",
       "astro",
       "html",
-      "css"
+      "css",
+      "scss"
     }
 
     -- パーサーを非同期でインストール
