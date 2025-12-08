@@ -1,9 +1,14 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
   branch = "main",
   lazy = false,
-  opts = {
-    ensure_installed = {
+  config = function()
+    -- mainブランチの新しいAPIを使用
+    local ts = require("nvim-treesitter")
+
+    -- パーサーを非同期でインストール
+    ts.install({
       "lua",
       "typescript",
       "javascript",
@@ -20,10 +25,6 @@ return {
       "astro",
       "html",
       "css"
-    },
-    sync_install = true,
-    highlight = {
-      enable = true,
-    }
-    },
+    })
+  end,
 }
