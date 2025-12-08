@@ -7,8 +7,8 @@ return {
     -- mainブランチの新しいAPIを使用
     local ts = require("nvim-treesitter")
 
-    -- パーサーを非同期でインストール
-    ts.install({
+    -- インストール・ハイライト対象の言語リスト
+    local languages = {
       "lua",
       "typescript",
       "javascript",
@@ -25,6 +25,15 @@ return {
       "astro",
       "html",
       "css"
+    }
+
+    -- パーサーを非同期でインストール
+    ts.install(languages)
+
+    -- 指定したファイルタイプでTreesitterハイライトを有効化
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = languages,
+      callback = function() vim.treesitter.start() end,
     })
   end,
 }
