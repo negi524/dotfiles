@@ -25,7 +25,8 @@ return {
       "astro",
       "html",
       "css",
-      "scss"
+      "scss",
+      "dockerfile",
     }
 
     -- パーサーを非同期でインストール
