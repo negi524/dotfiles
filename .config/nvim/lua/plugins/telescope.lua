@@ -3,6 +3,7 @@ return {
   tag = 'v0.2.0',
   dependencies = { 'nvim-lua/plenary.nvim' },
   keys = {
+    -- 検索
     { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find files" },
     { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Live grep" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Buffers" },
