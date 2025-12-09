@@ -11,7 +11,7 @@ function neovim_setting () {
 
   # シンボリックリンクを作成
   local NVIM_FILES=(".config/nvim/init.lua")
-  NVIM_FILES+=(".config/nvim/lua/coc-settings.json")
+  NVIM_FILES+=(".config/nvim/coc-settings.json")
   NVIM_FILES+=(".config/nvim/lua/config/*.lua")
   NVIM_FILES+=(".config/nvim/lua/plugins/*.lua")
   for file in ${NVIM_FILES[@]}
