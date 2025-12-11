@@ -1,3 +1,5 @@
 {
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  // lua
+  "Lua.diagnostics.globals": ["vim"]
 }
