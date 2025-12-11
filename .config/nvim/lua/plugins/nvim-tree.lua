@@ -1,9 +1,41 @@
 return {
-   'nvim-tree/nvim-tree.lua',
-   config = true,
-   lazy = false,
-   keys = {
-    {mode = "n", "<leader><leader>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする"},
-  }
+  'nvim-tree/nvim-tree.lua',
+  lazy = false,
+  config = function()
+    local function on_attach(bufnr)
+      local api = require('nvim-tree.api')
+
+      -- ヘルパー関数
+      local function opts(desc)
+        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+
+      -- 基本操作
+      vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+      vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
+      vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
+      vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Preview'))
+      vim.keymap.set('n', 'za', api.tree.expand_all, opts('Expand All'))
+
+      -- ファイル操作
+      vim.keymap.set('n', 'a', api.fs.create, opts('Create'))
+      vim.keymap.set('n', 'd', api.fs.remove, opts('Delete'))
+      vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
+      vim.keymap.set('n', 'x', api.fs.cut, opts('Cut'))
+      vim.keymap.set('n', 'yy', api.fs.copy.node, opts('Copy'))
+      vim.keymap.set('n', 'p', api.fs.paste, opts('Paste'))
+
+      -- その他
+      vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+      vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+    end
+
+    require('nvim-tree').setup({
+      on_attach = on_attach,
+    })
+
+    -- グローバルキーマップ
+    vim.keymap.set('n', '<leader><leader>', '<cmd>NvimTreeToggle<CR>', { desc = 'NvimTreeをトグルする' })
+  end,
 }
 
