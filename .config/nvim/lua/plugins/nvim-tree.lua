@@ -12,10 +12,13 @@ return {
 
       -- 基本操作
       vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-      vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
       vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
       vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Preview'))
-      vim.keymap.set('n', 'za', api.tree.expand_all, opts('Expand All'))
+      vim.keymap.set('n', 'zO', api.tree.expand_all, opts('Expand All'))
+      vim.keymap.set('n', 'zc', api.node.navigate.parent_close, opts('Close Directory'))
+      vim.keymap.set("n", "K", api.node.show_info_popup, opts("Info"))
+      vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
+      vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
 
       -- ファイル操作
       vim.keymap.set('n', 'a', api.fs.create, opts('Create'))
@@ -32,6 +35,9 @@ return {
 
     require('nvim-tree').setup({
       on_attach = on_attach,
+      update_focused_file = {
+        enable = true,
+      },
     })
 
     -- グローバルキーマップ
