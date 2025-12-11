@@ -3,7 +3,7 @@ return {
    config = true,
    lazy = false,
    keys = {
-    {mode = "n", "<C-n>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする"},
+    {mode = "n", "<leader><leader>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする"},
   }
 }
 
