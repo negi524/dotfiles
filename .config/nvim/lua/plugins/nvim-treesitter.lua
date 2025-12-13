@@ -4,6 +4,11 @@ return {
   branch = "main",
   lazy = false,
   config = function()
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt.foldlevel = 99
+    vim.opt.foldtext = ""
+
     -- mainブランチの新しいAPIを使用
     local ts = require("nvim-treesitter")
 
