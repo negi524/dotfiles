@@ -21,6 +21,8 @@ vim.opt.hlsearch = true                           -- 検索ワードのハイラ
 vim.opt.cursorline = true                         -- 行全体をハイライトする
 vim.opt.cursorlineopt = 'number'                  -- 行ハイライトの設定
 
+vim.opt.signcolumn = "yes"                        -- 目印桁を常に表示する
+
 -- nvim-treeのためにnetrwを無効化
 -- https://github.com/nvim-tree/nvim-tree.lua
 vim.g.loaded_netrw       = 1
