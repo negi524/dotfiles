@@ -19,8 +19,11 @@ return {
       vim.cmd("DiffviewOpen " .. base .. "..." .. current)
     end
 
-    vim.keymap.set("n", "<leader>gp", open_pr_diff, {
+    vim.keymap.set("n", "<leader>dr", open_pr_diff, {
       desc = "Diffview: show diff of current PR",
     })
+    vim.keymap.set("n", "<leader>dw", "<cmd>DiffviewOpen<CR>", {
+      desc = "Diffview: show diff of current file"
+   })
   end,
 }

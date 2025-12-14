@@ -12,6 +12,7 @@ return {
 
       -- 基本操作
       vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+      vim.keymap.set('n', 'zo', api.node.open.edit, opts('Open'))
       vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
       vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Preview'))
       vim.keymap.set('n', 'zO', api.tree.expand_all, opts('Expand All'))
