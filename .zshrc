@@ -26,6 +26,9 @@ eval "$(mise activate zsh)"
 # uvの補完設定
 eval "$(uv generate-shell-completion zsh)"
 
+# historyから特定コマンドを除外する
+HISTORY_IGNORE="(cd|pwd|l[sal])"
+
 # git-promptの設定
 source ~/.git-prompt.sh
 
