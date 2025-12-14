@@ -30,12 +30,11 @@ return {
       "astro",
       "html",
       "css",
-      "scss",
-      "dockerfile",
+      "scss"
     }
 
-    -- パーサーを非同期でインストール
-    ts.install(languages)
+    -- パーサーをインストール
+    ts.install(languages):wait(300000)
 
     -- 指定したファイルタイプでTreesitterハイライトを有効化
     vim.api.nvim_create_autocmd("FileType", {
