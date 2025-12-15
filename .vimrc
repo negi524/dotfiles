@@ -32,7 +32,7 @@ set shiftwidth=2                                "自動インデントの幅
 set smartindent                                 "一つ前の行に基づくインデント
 set expandtab                                   "タブ入力を空白にする
 set list                                        "listオプションを有効にする
-set listchars=tab:»-,trail:-,nbsp:%             "listオプションを設定する
+set listchars=leadmultispace:¦\ ,nbsp:%         "listオプションを設定する
 
 " コマンドライン
 " <C-p>, <C-n>でフィルタリングしながらコマンドラインの補完を行う
