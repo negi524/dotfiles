@@ -14,7 +14,7 @@ vim.opt.shiftwidth = 2                            -- 自動インデントの幅
 vim.opt.smartindent = true                        -- 一つ前の行に基づくインデントを有効
 vim.opt.expandtab = true                          -- タブ入力を空白にする
 vim.opt.list = true                               -- listオプションを有効にする
-vim.opt.listchars = { tab = '»-' , trail = '-' }  -- タブと行末空白を可視化する
+vim.opt.listchars = { trail = '●', leadmultispace = '¦ ' }  -- インデントと行末空白を可視化する
 
 -- ハイライト
 vim.opt.hlsearch = true                           -- 検索ワードのハイライトを行う
