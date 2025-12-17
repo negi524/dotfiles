@@ -1,5 +1,6 @@
 return {
   "sindrets/diffview.nvim",
+  lazy = true,
   config = function()
     local function open_pr_diff()
       -- 現在のブランチ名

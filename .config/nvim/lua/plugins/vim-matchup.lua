@@ -1,5 +1,6 @@
 return {
   "andymass/vim-matchup",
+  lazy = true,
   event = { "BufReadPost" },  -- ファイル読み込み後に遅延ロード
   config = function()
     -- === 可視化のみを有効化 ===
