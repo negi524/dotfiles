@@ -21,6 +21,8 @@ return {
       vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
       vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
       vim.keymap.set("n", "i", api.tree.toggle_gitignore_filter, opts("Toggle: ignore files"))
+      vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts("Up"))
+      vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
 
       -- ファイル操作
       vim.keymap.set('n', 'a', api.fs.create, opts('Create'))
