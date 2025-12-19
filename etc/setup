@@ -28,9 +28,6 @@ function main () {
   # Claude Skills ----------------------------
   claude_skills_setting
 
-  # Claude Context ---------------------------
-  claude_context_setting
-
   # Claude CLAUDE.md -------------------------
   claude_md_setting
 }
@@ -74,41 +71,10 @@ function claude_skills_setting () {
   done
 }
 
-# Claude Contextのシンボリックリンクを設定する関数
-function claude_context_setting () {
-  local source_dir="${DOTPATH}/.claude/context"
-  local target_dir="${HOME}/.claude/context"
-
-  if [[ -d "$source_dir" ]]; then
-    if [[ -L "$target_dir" ]]; then
-      echo "context already linked: $target_dir"
-    elif [[ -d "$target_dir" ]]; then
-      echo "Warning: $target_dir exists as directory, skipping"
-    else
-      ln -sf "$source_dir" "$target_dir"
-      echo "Linked: $source_dir -> $target_dir"
-    fi
-  fi
-}
-
 # Claude CLAUDE.mdのシンボリックリンクを設定する関数
 function claude_md_setting () {
-  local source_file="${DOTPATH}/.claude/CLAUDE.md"
-  local target_file="${HOME}/.claude/CLAUDE.md"
-
-  if [[ -f "$source_file" ]]; then
-    if [[ -L "$target_file" ]]; then
-      echo "CLAUDE.md already linked: $target_file"
-    elif [[ -f "$target_file" ]]; then
-      # 既存ファイルをバックアップしてからリンク
-      mv "$target_file" "${target_file}.bak"
-      ln -sf "$source_file" "$target_file"
-      echo "Linked: $source_file -> $target_file (backup: ${target_file}.bak)"
-    else
-      ln -sf "$source_file" "$target_file"
-      echo "Linked: $source_file -> $target_file"
-    fi
-  fi
+  local rel_path=".claude/CLAUDE.md"
+  create_ln "${rel_path}"
 }
 
 # main関数実行
