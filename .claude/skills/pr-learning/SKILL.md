@@ -107,3 +107,69 @@ description: PRの内容からコーディング規則や実装パターンを�
 - チーム内のコーディング規則の統一
 - ベストプラクティスの蓄積と共有
 - 技術的負債の早期発見と改善
+
+## 学習内容の保存
+
+学習レポート出力後、重要なパターンは以下に保存してください：
+
+**保存先**: `~/.claude/context/learnings/`
+
+### 保存手順
+
+1. 該当する言語/フレームワークのファイルを開く
+2. 推奨パターンまたはアンチパターンとして追記
+3. 学習元（PR番号、日付）を明記
+
+### 保存先ファイル一覧
+
+| ファイル | 対象 |
+|---------|------|
+| `typescript.md` | TypeScript固有のパターン |
+| `react.md` | React（コア機能、Hooks等） |
+| `react-router.md` | React Router |
+| `vue.md` | Vue / Nuxt |
+| `rails.md` | Ruby on Rails |
+| `python.md` | Python |
+| `nestjs.md` | NestJS |
+| `general.md` | 言語非依存の汎用パターン |
+
+### 保存例
+
+TypeScriptのバリデーションパターンを学習した場合：
+
+```markdown
+### zodを使った型安全なバリデーション
+**学習元**: PR#123 (2024-12-19)
+
+**説明**:
+外部入力のバリデーションにはzodを使用し、型推論と実行時検証を一元化する。
+
+**コード例**:
+```typescript
+import { z } from 'zod';
+
+const userSchema = z.object({
+  email: z.string().email(),
+  age: z.number().min(0).max(150),
+});
+
+type User = z.infer<typeof userSchema>;
+```
+
+**理由**:
+- 型定義とバリデーションロジックの二重管理を防止
+- 型推論が自動で行われる
+- エラーメッセージがわかりやすい
+```
+
+→ `~/.claude/context/learnings/typescript.md` の「推奨パターン」セクションに追記
+
+## コードレビュースキルとの連携
+
+保存した学習内容は、以下のレビュースキル実行時に自動参照されます：
+
+- `code-review-bugs`: バグ検出時にアンチパターンをチェック
+- `code-review-maintainability`: 保守性レビューで推奨パターンを参照
+- `code-review-simplify`: シンプル化提案で代替パターンを提案
+
+この連携により、学習 → 蓄積 → レビュー → 改善のサイクルが形成されます。
