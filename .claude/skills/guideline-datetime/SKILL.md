@@ -69,6 +69,29 @@ const isExpired = Date.now() > expiresAt;
 const isExpired = (now: Date) => now.getTime() > expiresAt;
 ```
 
+### 文字列で日時を受け渡す
+```typescript
+// NG: 関数間で文字列として受け渡す
+function getFormattedDate(): string {
+  return new Date().toISOString();
+}
+function processDate(dateStr: string) {
+  const date = new Date(dateStr); // 毎回パースが必要
+  // ...
+}
+
+// OK: Date型のまま受け渡す
+function getCurrentDate(): Date {
+  return new Date();
+}
+function processDate(date: Date) {
+  // そのまま使える、型安全
+  // ...
+}
+// 文字列変換は最終出力時のみ
+const output = format(processDate(getCurrentDate()), 'yyyy-MM-dd');
+```
+
 ---
 
 ## 推奨パターン
