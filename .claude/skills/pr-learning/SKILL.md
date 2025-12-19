@@ -87,15 +87,15 @@ PRのコメントを分析する際は、以下を意識する：
 
 抽出した知識を以下のスキルに分類：
 
-| 知識の種類 | 保存先スキル |
-|-----------|-------------|
-| 日時処理関連 | `guideline-datetime` |
-| ライブラリ選定・活用 | `guideline-library-usage` |
+| 知識の種類 | 保存先 |
+|-----------|--------|
+| 日時処理関連 | `~/dotfiles/.claude/skills/guideline-datetime/SKILL.md` |
+| ライブラリ選定・活用 | `~/dotfiles/.claude/skills/guideline-library-usage/SKILL.md` |
 | その他（新規カテゴリ） | 新規スキル作成を提案 |
 
 ### 4. ガイドラインスキルへの追記
 
-該当する`guideline-*/SKILL.md`の「学習した知識」セクションに追記：
+該当する`~/dotfiles/.claude/skills/guideline-*/SKILL.md`の「学習した知識」セクションに追記：
 
 ```markdown
 ### [学習内容のタイトル]
@@ -151,7 +151,7 @@ PRのコメントを分析する際は、以下を意識する：
 既存のガイドラインに該当しない知識を発見した場合：
 
 1. ユーザーに新規スキル作成を提案
-2. 承認されたら以下の形式で作成：
+2. 承認されたら `~/dotfiles/.claude/skills/guideline-[カテゴリ名]/SKILL.md` を以下の形式で作成：
 
 ```markdown
 ---
@@ -190,7 +190,7 @@ description: [説明。実装時に自動参照されるようキーワードを
     ↓
 [知識を抽出・分類]
     ↓
-[guideline-*/SKILL.md に追記]
+[~/dotfiles/.claude/skills/guideline-*/SKILL.md に追記]
     ↓
 [次回実装時にClaude Codeが自動参照]
     ↓
