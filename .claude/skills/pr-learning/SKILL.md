@@ -24,6 +24,9 @@ PRの内容（差分、コメント、レビュー）から知識を抽出し、
 
 ### 1. PR情報の取得
 ```bash
+# 自分のGitHubユーザー名を取得
+gh api user --jq '.login'
+
 # PRの詳細を取得
 gh pr view <PR番号> --json title,body,additions,deletions,changedFiles
 
@@ -32,10 +35,19 @@ gh pr diff <PR番号>
 
 # コメントとレビューを取得
 gh pr view <PR番号> --comments
+gh api repos/{owner}/{repo}/pulls/{pr}/comments
 gh api repos/{owner}/{repo}/pulls/{pr}/reviews
 ```
 
 ### 2. 学習観点での分析
+
+**重要: 自分自身の指摘コメントを中心に知識を抽出する**
+
+PRのコメントを分析する際は、以下を意識する：
+
+- **自分の指摘コメントを優先**: 改善提案、問題点の指摘、ベストプラクティスへの誘導など
+- **メモ的なコメントは除外**: 単なるメモや確認コメントは学習対象外
+- **指摘コメントの特徴**: 「〜すべき」「〜した方がいい」「〜は避ける」「なぜ〜？」など
 
 以下の観点でPRを分析し、知識を抽出する：
 
