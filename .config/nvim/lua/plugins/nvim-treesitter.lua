@@ -30,7 +30,8 @@ return {
       "astro",
       "html",
       "css",
-      "scss"
+      "scss",
+      "sql"
     }
 
     -- パーサーをインストール
