@@ -199,3 +199,62 @@ const handleChangeFile = (file: File | undefined) => {
 - 「意味」で共通化すると用途が明確で保守しやすい
 - 外部ライブラリの薄いラッパーは価値が低い
 
+### computedよりメソッドを使う場面
+**学習元**: PRレビュー (2024-12)
+
+**内容**:
+`computed`は結果をキャッシュするが、計算量が少ない処理には過剰な場合がある。
+適切なタイミングを理解して`computed`を使うのが理想だが、大した計算量でなければ通常のメソッドを使う方が考えることが少なくて済む。
+
+**コード例**:
+```typescript
+// NG: 単純な計算にcomputed
+const isOverLimit = computed(() => {
+  return remaining.value < 0
+})
+
+// OK: 通常のメソッド
+const isOverLimit = () => {
+  return remaining.value < 0
+}
+```
+
+**理由・背景**:
+- `computed`は良くも悪くもキャッシュする
+- 巨大な配列のループや重い計算には`computed`が有効
+- 単純な条件判定や加減算程度なら通常メソッドでOK
+- キャッシュの挙動を意識しなくて済む分、バグを防げる
+
+### 条件分岐のためにdivタグを新規作成しない
+**学習元**: PRレビュー (2024-12)
+
+**内容**:
+`v-if`などの条件分岐のために新しい`<div>`タグを追加しない。
+既存の要素に条件を付与するか、`<template>`タグを使用する。
+
+**コード例**:
+```vue
+<!-- NG: v-ifのためにdivを新規作成 -->
+<div class="container">
+  <div v-if="isVisible">
+    <span>内容</span>
+  </div>
+</div>
+
+<!-- OK: 既存の要素にv-ifを付与 -->
+<div v-if="isVisible" class="container">
+  <span>内容</span>
+</div>
+
+<!-- OK: templateタグを使用（DOM出力なし） -->
+<template v-if="isVisible">
+  <span>内容A</span>
+  <span>内容B</span>
+</template>
+```
+
+**理由・背景**:
+- 不要なDOM要素が増えると可読性・パフォーマンスが低下
+- `<template>`タグはDOMに出力されないため条件分岐に適している
+- 既存要素で対応できるなら新しい要素を追加しない
+
