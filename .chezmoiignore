@@ -6,3 +6,6 @@ bin/
 etc/
 iTerm2/
 tmp/
+
+# Neovim
+lazy-lock.json
