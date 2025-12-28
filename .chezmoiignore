@@ -4,7 +4,6 @@ README.md
 .vim/
 bin/
 etc/
-iTerm2/
 tmp/
 
 # Neovim
