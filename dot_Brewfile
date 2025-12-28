@@ -1,5 +1,7 @@
 tap "homebrew/bundle"
 brew "awscli"
+brew "chezmoi"
+brew "fd"
 brew "ffmpeg"
 brew "gh"
 brew "jq"

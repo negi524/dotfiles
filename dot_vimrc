@@ -42,4 +42,3 @@ set wildmenu                                    "入力候補を表示する
 
 " netrw
 let g:netrw_preview=1                             " プレビューウィンドウを垂直分割で表示する
-
