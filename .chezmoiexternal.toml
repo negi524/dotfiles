@@ -1,0 +1,3 @@
+[".claude/skills"]
+type = "git-repo"
+url = "git@github.com:negi524/claude-skills.git"
