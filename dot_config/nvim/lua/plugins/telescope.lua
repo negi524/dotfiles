@@ -26,7 +26,23 @@ return {
         "--column",
         "--smart-case",
         "--hidden",
-      }
+      },
+      mappings = {
+        i = {
+          ["<C-s>"] = function(prompt_bufnr)
+            local actions = require('telescope.actions')
+            actions.send_to_qflist(prompt_bufnr)
+            actions.open_qflist(prompt_bufnr)
+          end,
+        },
+        n = {
+          ["<C-s>"] = function(prompt_bufnr)
+            local actions = require('telescope.actions')
+            actions.send_to_qflist(prompt_bufnr)
+            actions.open_qflist(prompt_bufnr)
+          end,
+        },
+      },
     }
   }
 }
