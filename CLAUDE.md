@@ -4,20 +4,23 @@
 
 ## プロジェクト概要
 
-これはmacOS上の開発環境設定を管理するための個人用dotfilesリポジトリです。シェル設定、テキストエディタのセットアップ、ターミナルマルチプレクサの設定、完全な開発環境のためのパッケージ管理が含まれています。
+これはmacOS上の開発環境設定を[chezmoi](https://www.chezmoi.io/)で管理するための個人用dotfilesリポジトリです。シェル設定、テキストエディタのセットアップ、ターミナルマルチプレクサの設定、完全な開発環境のためのパッケージ管理が含まれています。
 
 ## 主要なコマンド
 
 ### 初期設定
 ```bash
-# 依存関係の初期化（事前にwgetとHomebrewのインストールが必要）
-~/dotfiles/etc/init
+# chezmoiをインストール（Homebrewの事前インストールが必要）
+brew install chezmoi
 
-# シンボリックリンクを通じて設定を適用
-~/dotfiles/etc/setup
+# リポジトリをchezmoiソースディレクトリとしてクローン
+chezmoi init git@github.com:negi524/dotfiles.git
+
+# 設定ファイルをホームディレクトリに適用
+chezmoi apply
 
 # 全てのHomebrewパッケージをインストール
-brew bundle --file='~/dotfiles/.Brewfile'
+brew bundle --global
 
 # zshプラグインをインストール
 zplug install
@@ -28,8 +31,16 @@ zplug install
 # IDE風のtmuxレイアウトを起動（70/30縦分割）
 ide
 
+# 設定ファイルを編集（chezmoiエディタで開く）
+chezmoi edit ~/.zshrc
+
+# chezmoiソースディレクトリで直接編集
+cd ~/.local/share/chezmoi
+# ファイル編集後...
+chezmoi apply
+
 # Homebrewパッケージリストを更新
-brew bundle dump --no-vscode --force --file='~/dotfiles/.Brewfile'
+brew bundle dump --global --force
 
 # 設定変更後にシェル設定を反映
 source ~/.zshrc
@@ -50,16 +61,17 @@ git config --global alias.df diff
 ## アーキテクチャと構造
 
 ### 設定管理パターン
-- **シンボリックリンクベースのデプロイ**: オリジナルファイルはdotfilesリポジトリに残し、ホームディレクトリにシンボリックリンクを作成
-- **モジュール化されたセットアップ**: 別々のスクリプトが異なる側面を処理（init、setup、Neovim設定）
-- **冪等操作**: スクリプトは処理前に既存のインストールをチェック
+- **chezmoiベースの管理**: 設定ファイルは`~/.local/share/chezmoi`に保存され、`chezmoi apply`でホームディレクトリに展開
+- **テンプレート機能**: `.chezmoiexternal.toml.tmpl`でホスト名に応じた設定の切り替えが可能
+- **外部リポジトリ統合**: Claude SkillsなどをGitリポジトリから自動取得（`.chezmoiexternal.toml.tmpl`で管理）
+- **冪等操作**: `chezmoi apply`は変更があった場合のみファイルを更新
 
 ### 主要ディレクトリ
-- `bin/`: PATHに追加されるカスタムスクリプト（`ide` tmuxレイアウトスクリプトを含む）
-- `etc/`: 共有ログユーティリティを含むセットアップと初期化スクリプト
-- `.config/nvim/`: lazy.nvimを使用するモダンなLuaベースのNeovim設定
+- `bin/`: カスタムスクリプト（`ide` tmuxレイアウトスクリプトなど）※chezmoiの管理外
+- `etc/`: レガシーのセットアップスクリプト ※chezmoi移行後は主に使用していない
+- `dot_config/nvim/`: lazy.nvimを使用するモダンなLuaベースのNeovim設定（chezmoiで`~/.config/nvim/`に展開）
 - `iTerm2/`: ターミナルエミュレータの設定とカラースキーム
-- `.vim/`: ファイルタイプ固有設定を含むレガシーVim設定
+- `tmp/`: 一時ファイル用ディレクトリ
 
 ### ランタイム管理スタック
 - **シェル**: zshをメイン（`.zshrc`で設定）
@@ -102,28 +114,35 @@ git config --global alias.df diff
 ## 開発ワークフロー
 
 ### ファイル変更プロセス
-1. dotfilesリポジトリ内の設定ファイルを編集
-2. 必要に応じて`~/dotfiles/etc/setup`を実行してシンボリックリンクを更新
+1. chezmoiソースディレクトリ内の設定ファイルを編集
+   ```bash
+   cd ~/.local/share/chezmoi
+   # または
+   chezmoi edit ~/.zshrc
+   ```
+2. 変更を適用: `chezmoi apply`
 3. シェル設定を反映: `source ~/.zshrc`
 4. tmux変更の場合: `tmux source-file ~/.tmux.conf`
 
 ### パッケージ管理
-- `.Brewfile`に手動または`brew install`経由で新しいパッケージを追加
-- `brew bundle dump --no-vscode --force --file='~/dotfiles/.Brewfile'`でパッケージリストを更新
-- VSCode拡張機能は管理対象から明示的に除外
+- `brew install <package>`で新しいパッケージをインストール
+- `brew bundle dump --global --force`でパッケージリストを更新（`~/.Brewfile`に保存）
+- chezmoiソースディレクトリの`dot_Brewfile`に変更を反映
+- VSCode拡張機能は`--no-vscode`オプションで管理対象から除外
 
 ### 変更のテスト
 - シェル設定: `source ~/.zshrc`
 - tmux設定: `tmux source-file ~/.tmux.conf`
 - Neovimプラグイン: Neovimを起動して`:Lazy`でプラグインステータスを確認
-- シンボリックリンク: `ls -la ~/ | grep dotfiles`でリンクを確認
+- chezmoi管理ファイル: `chezmoi managed`で管理対象ファイル一覧を確認
+- 差分確認: `chezmoi diff`で適用前に変更内容を確認
 
 ## 重要な注意事項
 
 ### 前提条件
 - macOSシステム（`/opt/homebrew`パスを使用）
 - Homebrewの事前インストールが必要
-- 初期化スクリプトにはwgetが必要
+- chezmoiのインストールが必要（`brew install chezmoi`）
 - プライベートGitHubリポジトリ用のSSHキーが設定されたGit
 
 ### 言語コンテキスト
@@ -132,10 +151,11 @@ git config --global alias.df diff
 - Gitコミットメッセージは`feat:`、`fix:`などのプレフィックス付き英語形式に従う
 
 ### 現在のブランチ状況
-- `feature/claude_skills`ブランチで作業中
-- 最近の変更にはClaude Desktop統合、Android Studioセットアップ、PostgreSQL 17インストールが含まれる
+- `main`ブランチで作業中
+- 最近の変更にはchezmoi移行、Claude Skillsの外部リポジトリ化が含まれる
 
 ### 既知の制限事項
 - Flutter SDKはインストールされているが、現在シェル設定で無効化されている
 - Gitエイリアスはdotfilesで管理されておらず、手動セットアップが必要
-- 一部のスクリプトには未完成機能のTODOマーカーがある（uninstall.sh）
+- `etc/`ディレクトリの古いセットアップスクリプト（init, setup）はchezmoi移行後は主に使用していない
+- `bin/`ディレクトリはchezmoiの管理外（`.chezmoiignore`に含まれる）

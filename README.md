@@ -1,6 +1,6 @@
 # dotfiles
 
-開発環境管理
+macOS開発環境を[chezmoi](https://www.chezmoi.io/)で管理
 
 - bash
 - zsh
@@ -10,17 +10,22 @@
 
 ## 初期設定
 
-リポジトリをホームディレクトリ配下にクローン
+chezmoiをインストール
 
 ```bash
-cd ~/
-git clone git@github.com:negi524/dotfiles.git
+brew install chezmoi
 ```
 
-必要なデータをダウンロード
+リポジトリをchezmoiソースディレクトリとして初期化
 
 ```bash
-~/dotfiles/etc/init
+chezmoi init git@github.com:negi524/dotfiles.git
+```
+
+設定を適用
+
+```bash
+chezmoi apply
 ```
 
 ## Homebrewの設定
@@ -30,10 +35,19 @@ Homebrewをインストールし、brewコマンドが利用可能な状態に�
 ### Homebrewによりインストールされたパッケージを保存
 
 ```bash
-brew bundle dump --no-vscode --force --file='~/dotfiles/.Brewfile'
+brew bundle dump --global --force
 ```
 
-※VSCodeの拡張機能は管理対象外とする
+※ `~/.Brewfile` に保存される
+※VSCodeの拡張機能は`--no-vscode`オプションで管理対象外
+
+chezmoiソースディレクトリの`dot_Brewfile`に反映
+
+```bash
+cd ~/.local/share/chezmoi
+cp ~/.Brewfile dot_Brewfile
+chezmoi apply
+```
 
 ## gitの設定
 
@@ -53,22 +67,39 @@ git config --global alias.df diff
 各種設定を反映する
 
 ```bash
-~/dotfiles/etc/setup
+chezmoi apply -v
+```
+
+設定ファイルを編集する場合
+
+```bash
+# chezmoiエディタで編集
+chezmoi edit ~/.zshrc
+
+# または、ソースディレクトリで直接編集
+chezmoi cd
+# ファイル編集後...
+chezmoi apply -v
 ```
 
 ## ディレクトリ構成
 
+chezmoiソースディレクトリ (`~/.local/share/chezmoi`) の構成
+
+### dot_config/
+
+`~/.config/` に展開される設定ファイル
+- `nvim/`: Neovim設定（lazy.nvimでプラグイン管理）
+
 ### bin/
 
 自作のコマンドスクリプトやバイナリなどを配置
+※chezmoiの管理外（`.chezmoiignore`に含まれる）
 
 ### etc/
 
-dotfiles の設定反映などに利用する設定用のスクリプトなどを配置
-
-### downloads/
-
-設定時に必要なダウンロードしたものを配置
+レガシーのセットアップスクリプト
+※chezmoi移行後は主に使用していない
 
 ### iTerm2/
 
@@ -79,12 +110,23 @@ iTerm2 で利用する設定ファイルを配置
 一時的なファイルを配置
 削除されても問題ないファイルを配置
 
-## Vim
+### dot_*
+
+chezmoiの命名規則で、`dot_`プレフィックスがついたファイルは`.`で始まるファイルとして展開される
+- `dot_zshrc` → `~/.zshrc`
+- `dot_Brewfile` → `~/.Brewfile`
+- `dot_tmux.conf` → `~/.tmux.conf`
+
+## Neovim
 
 - color scheme : onedark
 - plugin manager : [lazy.nvim][]
 
-### Plugin for Neovim
+設定ファイルの場所（chezmoi管理下）
+- ソース: `~/.local/share/chezmoi/dot_config/nvim/`
+- 展開先: `~/.config/nvim/`
+
+### 主要プラグイン
 
 |          名称          |             説明             |
 | :--------------------: | :--------------------------: |
@@ -93,6 +135,8 @@ iTerm2 で利用する設定ファイルを配置
 |  [onedark.nvim][]      |       カラースキーマ         |
 |  [nvim-tree.lua][]     |           ファイラ           |
 |  [diffview.nvim][]     |          差分を確認          |
+|  [gitsigns.nvim][]     |        Git差分表示           |
+|  [copilot.lua][]       |      GitHub Copilot統合      |
 
 
 ## zsh
@@ -121,6 +165,8 @@ zplug install
 [onedark.nvim]: https://github.com/navarasu/onedark.nvim
 [nvim-tree.lua]: https://github.com/nvim-tree/nvim-tree.lua
 [diffview.nvim]: https://github.com/sindrets/diffview.nvim
+[gitsigns.nvim]: https://github.com/lewis6991/gitsigns.nvim
+[copilot.lua]: https://github.com/zbirenbaum/copilot.lua
 [jethrokuan/fzf]: https://github.com/jethrokuan/fzf
 [zplug/zplug]: https://github.com/zplug/zplug
 [zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
