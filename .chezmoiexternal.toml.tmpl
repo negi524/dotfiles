@@ -1,8 +1,8 @@
 [".claude/skills"]
 type = "git-repo"
-{{ if eq .chezmoi.hostname "CC7437" }}
+{{ if eq .chezmoi.hostname "CC7437" -}}
 url = "git@github-private:negi524/claude-skills.git"
-{{ else }}
+{{ else -}}
 url = "git@github.com:negi524/claude-skills.git"
-{{ end }}
+{{ end -}}
 refreshPeriod = "12h"
