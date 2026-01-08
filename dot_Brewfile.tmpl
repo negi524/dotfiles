@@ -22,3 +22,6 @@ cask "android-studio"
 cask "claude"
 cask "flutter"
 cask "font-hack-nerd-font"
+{{ if eq .chezmoi.hostname "CC7437" -}}
+cask "onedrive"
+{{ end -}}
