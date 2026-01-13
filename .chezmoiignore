@@ -1,9 +1,0 @@
-CLAUDE.md
-README.md
-.vim/
-bin/
-etc/
-tmp/
-
-# Neovim
-lazy-lock.json

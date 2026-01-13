@@ -1,0 +1,14 @@
+CLAUDE.md
+README.md
+.vim/
+bin/
+etc/
+tmp/
+
+# Neovim
+lazy-lock.json
+
+# Neovim Copilot configuration for specific host
+{{- if ne .chezmoi.hostname "CC7437" }}
+.config/nvim/lua/plugins/copilot.lua
+{{- end }}
