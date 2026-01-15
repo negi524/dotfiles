@@ -47,11 +47,28 @@ return {
     { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 
     -- 透過切り替え
+    { key = 'u', mods = 'SUPER', action = wezterm.action.EmitEvent 'toggle-opacity' },
+
+    -- 元のキーテーブルに戻る
     {
-      key = 'u',
-      mods = 'SUPER',
-      action = wezterm.action.EmitEvent 'toggle-opacity',
+      key = 'a',
+      mods = 'LEADER',
+      action = act.ActivateKeyTable {
+        name = 'activate_pane',
+        timeout_milliseconds = 1000,
+      },
     },
+
+    -- paneサイズ調整モードへ移行
+    {
+      key = 's',
+      mods = 'LEADER',
+      action = act.ActivateKeyTable {
+        name = 'resize_pane',
+        one_shot = false,
+      },
+    },
+
 
 
     -- { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
@@ -182,6 +199,15 @@ return {
   },
 
   key_tables = {
+    resize_pane = {
+      { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+      { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+      { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+      { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+
+      -- Cancel the mode by pressing escape
+      { key = "Enter", action = "PopKeyTable" },
+    },
     copy_mode = {
       { key = 'Tab', mods = 'NONE', action = act.CopyMode 'MoveForwardWord' },
       { key = 'Tab', mods = 'SHIFT', action = act.CopyMode 'MoveBackwardWord' },
