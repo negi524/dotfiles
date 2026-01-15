@@ -14,5 +14,11 @@ config.initial_rows = 28
 config.font_size = 10
 config.color_scheme = 'One Half Black (Gogh)'
 
+
+-- keybinds
+config.disable_default_key_bindings = true
+config.keys = require("keybinds").keys
+config.key_tables = require("keybinds").key_tables
+
 -- Finally, return the configuration to wezterm:
 return config
