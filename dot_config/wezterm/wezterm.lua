@@ -21,5 +21,14 @@ config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 
+-- ステータスバーにワークスペース名を表示
+wezterm.on('update-right-status', function(window, pane)
+  local workspace = window:active_workspace()
+  window:set_right_status(wezterm.format {
+    { Foreground = { Color = '#8be9fd' } },
+    { Text = ' 󰖯 ' .. workspace .. ' ' },
+  })
+end)
+
 -- Finally, return the configuration to wezterm:
 return config
