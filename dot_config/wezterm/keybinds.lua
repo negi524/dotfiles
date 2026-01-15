@@ -61,13 +61,57 @@ return {
 
     -- paneサイズ調整モードへ移行
     {
-      key = 's',
+      key = 'r',
       mods = 'LEADER',
       action = act.ActivateKeyTable {
         name = 'resize_pane',
         one_shot = false,
       },
     },
+
+    -- workspace
+    {
+      mods = 'LEADER',
+      key = 's',
+      action = act.ShowLauncherArgs { flags = 'WORKSPACES' , title = "Select workspace" },
+    },
+    {
+      -- Rename workspace
+      mods = 'LEADER',
+      key = ',',
+      action = act.PromptInputLine {
+        description = '(wezterm) Set workspace title:',
+        action = wezterm.action_callback(function(win,pane,line)
+          if line then
+            wezterm.mux.rename_workspace(
+              wezterm.mux.get_active_workspace(),
+              line
+            )
+          end
+        end),
+      },
+    },
+    {
+      -- Create new workspace
+      mods = 'LEADER',
+      key = 'c',
+      action = act.PromptInputLine {
+        description = "(wezterm) Create new workspace:",
+        action = wezterm.action_callback(function(window, pane, line)
+          if line then
+            window:perform_action(
+              act.SwitchToWorkspace {
+                name = line,
+              },
+              pane
+            )
+          end
+        end),
+      },
+    },
+    { key = 'n', mods = 'LEADER', action = act.SwitchWorkspaceRelative(1) },
+    { key = 'p', mods = 'LEADER', action = act.SwitchWorkspaceRelative(-1) },
+
 
 
 
@@ -198,6 +242,7 @@ return {
     -- { key = 'Paste', mods = 'NONE', action = act.PasteFrom 'Clipboard' },
   },
 
+  -- https://wezterm.org/config/key-tables.html
   key_tables = {
     resize_pane = {
       { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
