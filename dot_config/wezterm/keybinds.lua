@@ -1,6 +1,17 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
+-- 透過切り替え
+wezterm.on('toggle-opacity', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = 0.8
+  else
+    overrides.window_background_opacity = nil
+  end
+  window:set_config_overrides(overrides)
+end)
+
 return {
   keys = {
     -- default key mappings
@@ -10,7 +21,8 @@ return {
     -- フォントサイズ切り替え
     { key = '+', mods = 'SUPER', action = act.IncreaseFontSize },
     { key = '-', mods = 'SUPER', action = act.DecreaseFontSize },
-    -- ペースト
+    -- コピー＆ペースト
+    { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     { key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
     -- タブ作成
@@ -33,6 +45,13 @@ return {
     { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
     { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
     { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
+
+    -- 透過切り替え
+    {
+      key = 'u',
+      mods = 'SUPER',
+      action = wezterm.action.EmitEvent 'toggle-opacity',
+    },
 
 
     -- { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
@@ -120,8 +139,6 @@ return {
     -- { key = '^', mods = 'SHIFT|CTRL', action = act.ActivateTab(5) },
     -- { key = '_', mods = 'CTRL', action = act.DecreaseFontSize },
     -- { key = '_', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
-    -- { key = 'c', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
-    -- { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     -- { key = 'f', mods = 'SHIFT|CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
     -- { key = 'f', mods = 'SUPER', action = act.Search 'CurrentSelectionOrEmptyString' },
     -- { key = 'h', mods = 'SHIFT|CTRL', action = act.HideApplication },
