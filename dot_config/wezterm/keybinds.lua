@@ -25,6 +25,8 @@ return {
     { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     { key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
+    -- Shift+Enterで改行を送信（Claude Code等で必要）
+    { key = 'Enter', mods = 'SHIFT', action = act.SendString '\n' },
     -- タブ作成
     { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'w', mods = 'SUPER', action = act.CloseCurrentTab{ confirm = true } },
