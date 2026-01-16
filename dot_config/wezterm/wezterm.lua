@@ -10,10 +10,16 @@ config.automatically_reload_config = true
 config.initial_cols = 120
 config.initial_rows = 28
 
--- or, changing the font size and color scheme.
+-- フォントサイズ
 config.font_size = 15
-config.color_scheme = 'One Half Black (Gogh)'
+-- カラースキーマ
+config.color_scheme = 'OneHalfDark'
 
+-- タイトルバー削除
+config.window_decorations = "RESIZE"
+
+-- タブバーの+ボタンを非表示
+config.show_new_tab_button_in_tab_bar = false
 
 -- keybinds
 config.disable_default_key_bindings = true

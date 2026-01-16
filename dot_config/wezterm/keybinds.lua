@@ -14,10 +14,6 @@ end)
 
 return {
   keys = {
-    -- default key mappings
-    -- タブ切り替え
-    { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-    { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
     -- フォントサイズ切り替え
     { key = '+', mods = 'SUPER', action = act.IncreaseFontSize },
     { key = '-', mods = 'SUPER', action = act.DecreaseFontSize },
@@ -27,9 +23,16 @@ return {
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
     -- Shift+Enterで改行を送信（Claude Code等で必要）
     { key = 'Enter', mods = 'SHIFT', action = act.SendString '\n' },
+
     -- タブ作成
     { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'w', mods = 'SUPER', action = act.CloseCurrentTab{ confirm = true } },
+    -- タブ切り替え
+    { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+    { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
+    -- Tab入れ替え
+    { key = "<", mods = "LEADER", action = act.MoveTabRelative(-1) },
+    { key = ">", mods = "LEADER", action = act.MoveTabRelative(1) },
 
     -- アプリケーション終了
     { key = 'q', mods = 'SUPER', action = act.QuitApplication },
