@@ -29,9 +29,9 @@ return {
     { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'w', mods = 'SUPER', action = act.CloseCurrentTab{ confirm = true } },
 
-    -- custom key mappings(emulating tmux style)
-    { key = "t", mods = "LEADER", action = act.SpawnTab "CurrentPaneDomain" },
-    { key = "w", mods = "LEADER", action = act.CloseCurrentTab{ confirm = true } },
+    -- アプリケーション終了
+    { key = 'q', mods = 'SUPER', action = act.QuitApplication },
+
     -- pane垂直分割
     { key = "%", mods = "LEADER", action = act.SplitHorizontal{ domain = "CurrentPaneDomain" } },
     -- pane水平分割
@@ -212,8 +212,6 @@ return {
     -- { key = 'n', mods = 'SHIFT|CTRL', action = act.SpawnWindow },
     -- { key = 'n', mods = 'SUPER', action = act.SpawnWindow },
     -- { key = 'p', mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
-    -- { key = 'q', mods = 'SHIFT|CTRL', action = act.QuitApplication },
-    -- { key = 'q', mods = 'SUPER', action = act.QuitApplication },
     -- { key = 'r', mods = 'SHIFT|CTRL', action = act.ReloadConfiguration },
     -- { key = 'r', mods = 'SUPER', action = act.ReloadConfiguration },
     -- { key = 'u', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
