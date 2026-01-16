@@ -31,7 +31,7 @@ config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 wezterm.on('update-right-status', function(window, pane)
   local workspace = window:active_workspace()
   window:set_right_status(wezterm.format {
-    { Foreground = { Color = '#8be9fd' } },
+    { Foreground = { Color = '#98c379' } },
     { Text = ' 󰖯 ' .. workspace .. ' ' },
   })
 end)

@@ -54,16 +54,6 @@ return {
     -- 透過切り替え
     { key = 'u', mods = 'SUPER', action = wezterm.action.EmitEvent 'toggle-opacity' },
 
-    -- 元のキーテーブルに戻る
-    {
-      key = 'a',
-      mods = 'LEADER',
-      action = act.ActivateKeyTable {
-        name = 'activate_pane',
-        timeout_milliseconds = 1000,
-      },
-    },
-
     -- paneサイズ調整モードへ移行
     {
       key = 'r',
