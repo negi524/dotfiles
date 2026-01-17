@@ -23,6 +23,8 @@ return {
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
     -- Shift+Enterで改行を送信（Claude Code等で必要）
     { key = 'Enter', mods = 'SHIFT', action = act.SendString '\n' },
+    -- フルスクリーンモード
+    { key = '`', mods = 'SUPER', action = wezterm.action.ToggleFullScreen },
 
     -- タブ作成
     { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
