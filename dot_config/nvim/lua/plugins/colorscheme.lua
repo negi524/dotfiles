@@ -16,6 +16,7 @@ return {
       require('onedark').load()
     end
   },
+  -- nightfox
   {
     'EdenEast/nightfox.nvim',
     lazy = false,
