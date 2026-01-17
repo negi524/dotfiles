@@ -1,5 +1,5 @@
 -- カラースキーム設定
-local colorscheme = 'nightfox'
+local colorscheme = 'onedark'
 
 return {
   -- onedark
