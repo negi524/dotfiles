@@ -4,11 +4,15 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- 設定変更を即時反映する
 config.automatically_reload_config = true
 
--- For example, changing the initial geometry for new windows:
-config.initial_cols = 120
-config.initial_rows = 28
+-- 初期ウィンドウサイズ
+config.initial_cols = 160
+config.initial_rows = 38
+
+-- macOSのフルスクリーンモードは使わない
+config.native_macos_fullscreen_mode = false
 
 -- フォントサイズ
 config.font_size = 15
