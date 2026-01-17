@@ -12,6 +12,12 @@ config.initial_rows = 28
 
 -- フォントサイズ
 config.font_size = 15
+
+-- 日本語IMEの設定
+config.use_ime = true
+config.macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL'
+
+
 -- カラースキーマ
 config.color_scheme = 'OneHalfDark'
 
