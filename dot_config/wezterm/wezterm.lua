@@ -4,16 +4,31 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- 設定変更を即時反映する
 config.automatically_reload_config = true
 
--- For example, changing the initial geometry for new windows:
-config.initial_cols = 120
-config.initial_rows = 28
+-- 初期ウィンドウサイズ
+config.initial_cols = 160
+config.initial_rows = 38
 
--- or, changing the font size and color scheme.
+-- macOSのフルスクリーンモードは使わない
+config.native_macos_fullscreen_mode = false
+
+-- フォントサイズ
 config.font_size = 15
-config.color_scheme = 'One Half Black (Gogh)'
 
+-- 日本語IMEの設定
+config.use_ime = true
+config.macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL'
+
+-- カラースキーマ
+config.color_scheme = 'OneHalfDark'
+
+-- タイトルバー削除
+config.window_decorations = "RESIZE"
+
+-- タブバーの+ボタンを非表示
+config.show_new_tab_button_in_tab_bar = false
 
 -- keybinds
 config.disable_default_key_bindings = true
@@ -25,7 +40,7 @@ config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 wezterm.on('update-right-status', function(window, pane)
   local workspace = window:active_workspace()
   window:set_right_status(wezterm.format {
-    { Foreground = { Color = '#8be9fd' } },
+    { Foreground = { Color = '#98c379' } },
     { Text = ' 󰖯 ' .. workspace .. ' ' },
   })
 end)
