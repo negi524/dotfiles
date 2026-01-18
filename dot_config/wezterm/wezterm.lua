@@ -30,6 +30,17 @@ config.window_decorations = "RESIZE"
 -- タブバーの+ボタンを非表示
 config.show_new_tab_button_in_tab_bar = false
 
+-- フォントのフォールバック設定
+-- https://wezterm.org/config/fonts.html
+config.font = wezterm.font_with_fallback({
+  -- デフォルト
+  "JetBrains Mono",
+  "Noto Color Emoji",
+  "Symbols Nerd Font Mono",
+  -- nvim-treeプラグイン用に追加
+  "Hack Nerd Font"
+})
+
 -- keybinds
 config.disable_default_key_bindings = true
 config.keys = require("keybinds").keys
