@@ -51,11 +51,24 @@ config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 -- ステータスバーにワークスペース名を表示
 -- https://wezterm.org/config/lua/window-events/update-right-status.html
 wezterm.on('update-right-status', function(window, pane)
-  local workspace = window:active_workspace()
-  window:set_right_status(wezterm.format {
-    { Foreground = { Color = '#98c379' } },
-    { Text = ' 󰖯 ' .. workspace .. ' ' },
-  })
+  local workspaces = wezterm.mux:get_workspace_names()
+  local current = window:active_workspace()
+
+  local elements = {}
+  for _, ws in ipairs(workspaces) do
+    if ws == current then
+      -- アクティブ: 緑 + アイコン
+      table.insert(elements, { Foreground = { Color = '#98c379' } })
+      table.insert(elements, { Text = ' 󰖯 ' .. ws })
+    else
+      -- 非アクティブ: グレー
+      table.insert(elements, { Foreground = { Color = '#5c6370' } })
+      table.insert(elements, { Text = '  ' .. ws })
+    end
+  end
+
+  table.insert(elements, { Text = ' ' })
+  window:set_right_status(wezterm.format(elements))
 end)
 
 
