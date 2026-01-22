@@ -47,13 +47,30 @@ config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 
+
 -- ステータスバーにワークスペース名を表示
+-- https://wezterm.org/config/lua/window-events/update-right-status.html
 wezterm.on('update-right-status', function(window, pane)
   local workspace = window:active_workspace()
   window:set_right_status(wezterm.format {
     { Foreground = { Color = '#98c379' } },
     { Text = ' 󰖯 ' .. workspace .. ' ' },
   })
+end)
+
+
+-- ズーム状態を可視化
+-- https://wezterm.org/config/lua/window-events/format-tab-title.html
+wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+  local title = tab.active_pane.title
+  if tab.active_pane.is_zoomed then
+    return {
+      { Foreground = { Color = 'yellow' } },
+      { Text = '  ' .. title .. ' ' },
+    }
+  end
+
+  return title
 end)
 
 -- Finally, return the configuration to wezterm:

@@ -114,7 +114,6 @@ return {
 
 
 
-
     -- { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
     -- { key = '!', mods = 'CTRL', action = act.ActivateTab(0) },
     -- { key = '!', mods = 'SHIFT|CTRL', action = act.ActivateTab(0) },
