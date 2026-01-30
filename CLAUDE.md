@@ -70,7 +70,8 @@ git config --global alias.df diff
 - `bin/`: カスタムスクリプト（`ide` tmuxレイアウトスクリプトなど）※chezmoiの管理外
 - `etc/`: レガシーのセットアップスクリプト ※chezmoi移行後は主に使用していない
 - `dot_config/nvim/`: lazy.nvimを使用するモダンなLuaベースのNeovim設定（chezmoiで`~/.config/nvim/`に展開）
-- `iTerm2/`: ターミナルエミュレータの設定とカラースキーム
+- `dot_config/wezterm/`: WezTermターミナル設定（`~/.config/wezterm/`に展開）
+- `iTerm2/`: レガシーのターミナル設定 ※WezTermに移行済み
 - `tmp/`: 一時ファイル用ディレクトリ
 
 ### ランタイム管理スタック
@@ -78,6 +79,7 @@ git config --global alias.df diff
 - **バージョン管理**: mise（統合ランタイムマネージャー、pyenv/rbenv/fnmを置き換え）
 - **Pythonパッケージ**: uv（Poetryを置き換え）
 - **テキストエディタ**: Neovim（アクティブ）、Vim（レガシー）
+- **ターミナルエミュレータ**: WezTerm（Kittyグラフィックスプロトコル対応）
 - **ターミナルマルチプレクサ**: カスタムプレフィックス（Ctrl+Q）のtmux
 - **パッケージマネージャ**: .Brewfileで管理されるHomebrew
 
