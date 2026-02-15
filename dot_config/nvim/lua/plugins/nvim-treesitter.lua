@@ -31,7 +31,8 @@ return {
       "html",
       "css",
       "scss",
-      "sql"
+      "sql",
+      "kotlin"
     }
 
     -- パーサーをインストール
