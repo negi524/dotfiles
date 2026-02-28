@@ -3,7 +3,8 @@ return {
   opts = {
     ensure_installed = {
       "lua_ls",
-      "pylsp"
+      "pylsp",
+      "ruby_lsp"
     },
   },
   dependencies = {
