@@ -7,6 +7,7 @@ return {
       callback = function(args)
         local opts = { buffer = args.buf }
         vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
       end,
     })
   end,
