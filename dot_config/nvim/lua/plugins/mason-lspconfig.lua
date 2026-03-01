@@ -4,7 +4,9 @@ return {
     ensure_installed = {
       "lua_ls",
       "pylsp",
-      "ruby_lsp"
+      "ruby_lsp",
+      "ts_ls",
+      "vue_ls"
     },
   },
   dependencies = {
