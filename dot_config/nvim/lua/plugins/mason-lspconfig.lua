@@ -6,7 +6,8 @@ return {
       "pylsp",
       "ruby_lsp",
       "ts_ls",
-      "vue_ls"
+      "vue_ls",
+      "astro"
     },
   },
   dependencies = {
