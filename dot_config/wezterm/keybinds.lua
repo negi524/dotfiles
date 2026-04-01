@@ -12,6 +12,7 @@ wezterm.on('toggle-opacity', function(window, pane)
   window:set_config_overrides(overrides)
 end)
 
+
 return {
   keys = {
     -- フォントサイズ切り替え

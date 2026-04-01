@@ -24,6 +24,31 @@ config.macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL'
 -- カラースキーマ
 config.color_scheme = 'OneHalfDark'
 
+-- black/bright-black をブルーグレーに変更
+-- デフォルトのblackはダーク背景と同化してデコレータ（@ApiProperty等）が見えないため
+config.colors = {
+  ansi = {
+    '#8b929b', -- 0: black        → ブルーグレー
+    '#e06c75', -- 1: red
+    '#98c379', -- 2: green
+    '#e5c07b', -- 3: yellow
+    '#61afef', -- 4: blue
+    '#c678dd', -- 5: magenta
+    '#56b6c2', -- 6: cyan
+    '#dcdfe4', -- 7: white
+  },
+  brights = {
+    '#8b929b', -- 8:  bright black → ブルーグレー
+    '#e06c75', -- 9:  bright red
+    '#98c379', -- 10: bright green
+    '#e5c07b', -- 11: bright yellow
+    '#61afef', -- 12: bright blue
+    '#c678dd', -- 13: bright magenta
+    '#56b6c2', -- 14: bright cyan
+    '#ffffff', -- 15: bright white
+  },
+}
+
 -- タイトルバー削除
 config.window_decorations = "RESIZE"
 
