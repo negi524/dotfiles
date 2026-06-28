@@ -55,3 +55,30 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+# === WezTerm Semantic Zones (OSC 133) ===
+# 「直前のコマンド行 + その出力」を Leader+o でコピーできるようにするための土台。
+# シェルが要所でエスケープシーケンス(OSC 133)を出力し、WezTerm がそれを読んで
+# 「プロンプト/入力/出力」の範囲(Semantic Zone)を認識できるようにする。
+#   A: プロンプト開始 / B: 入力開始 / C: コマンド実行=出力開始 / D: コマンド終了
+if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
+  autoload -Uz add-zsh-hook
+
+  # コマンド実行後・次のプロンプト表示の直前に毎回呼ばれる
+  __wezterm_osc133_precmd() {
+    local exit_code=$?
+    print -n "\e]133;D;${exit_code}\a"   # 直前コマンドの終了（終了コード付き）
+    print -n "\e]133;A\a"                # 次のプロンプトの開始
+  }
+  # Enter押下後・コマンド実行の直前に呼ばれる
+  __wezterm_osc133_preexec() {
+    print -n "\e]133;C\a"                # コマンド実行＝出力の開始
+  }
+  add-zsh-hook precmd  __wezterm_osc133_precmd
+  add-zsh-hook preexec __wezterm_osc133_preexec
+
+  # プロンプト末尾に B（入力開始）マーカーを付与する。
+  # %{ %} は「表示幅ゼロの制御文字」であることを zsh に伝える囲み（折返し計算用）。
+  __wezterm_osc133_b=$'\e]133;B\a'
+  PS1="${PS1}%{${__wezterm_osc133_b}%}"
+fi

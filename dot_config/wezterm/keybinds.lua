@@ -12,6 +12,62 @@ wezterm.on('toggle-opacity', function(window, pane)
   window:set_config_overrides(overrides)
 end)
 
+-- 直前のコマンド行とその出力をまとめてクリップボードにコピーする。
+-- zsh側のOSC 133マーカーから作られる Semantic Zone を利用する。
+-- エラー調査時に「実行したコマンド + その結果」をワンキーで貼り付けられるようにする。
+local function copy_last_command_with_output(window, pane)
+  local zones = pane:get_semantic_zones()
+
+  -- 最後の Output ゾーン（直前コマンドの出力）を後ろから探す
+  local output_idx = nil
+  for i = #zones, 1, -1 do
+    if zones[i].semantic_type == 'Output' then
+      output_idx = i
+      break
+    end
+  end
+
+  if not output_idx then
+    window:toast_notification(
+      'wezterm',
+      'コピー対象が見つかりません（shell integrationが有効か確認してください）',
+      nil,
+      2000
+    )
+    return
+  end
+
+  local output_zone = zones[output_idx]
+
+  -- その直前の Input ゾーン（実行したコマンド行）を探す。
+  -- 後ろから探すことで、入力中の空プロンプトを誤って拾わないようにする。
+  local input_zone = nil
+  for i = output_idx - 1, 1, -1 do
+    if zones[i].semantic_type == 'Input' then
+      input_zone = zones[i]
+      break
+    end
+  end
+
+  local text
+  if input_zone then
+    -- コマンド行の先頭から出力の末尾までを一括取得
+    text = pane:get_text_from_region(
+      input_zone.start_x, input_zone.start_y,
+      output_zone.end_x, output_zone.end_y
+    )
+  else
+    -- Input ゾーンが取れない場合は出力のみコピー
+    text = pane:get_text_from_semantic_zone(output_zone)
+  end
+
+  -- 末尾の余分な空白・改行を除去
+  text = text:gsub('%s+$', '')
+
+  window:copy_to_clipboard(text, 'ClipboardAndPrimarySelection')
+  window:toast_notification('wezterm', '直前のコマンドと出力をコピーしました', nil, 1500)
+end
+
 
 return {
   keys = {
@@ -56,6 +112,9 @@ return {
 
     -- コピーモード
     { key = "y", mods = "LEADER", action = act.ActivateCopyMode },
+
+    -- 直前のコマンド行+出力をコピー（OSC133のSemantic Zoneを利用）
+    { key = "o", mods = "LEADER", action = wezterm.action_callback(copy_last_command_with_output) },
 
     -- 透過切り替え
     { key = 'u', mods = 'SUPER', action = wezterm.action.EmitEvent 'toggle-opacity' },
