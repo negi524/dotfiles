@@ -60,15 +60,16 @@ zplug load
 # 「直前のコマンド行 + その出力」を Leader+o でコピーできるようにするための土台。
 # シェルが要所でエスケープシーケンス(OSC 133)を出力し、WezTerm がそれを読んで
 # 「プロンプト/入力/出力」の範囲(Semantic Zone)を認識できるようにする。
-#   A: プロンプト開始 / B: 入力開始 / C: コマンド実行=出力開始 / D: コマンド終了
+#   A: プロンプト開始(PS1先頭) / B: 入力開始(PS1末尾) / C: コマンド実行=出力開始(preexec) / D: コマンド終了(precmd)
 if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
   autoload -Uz add-zsh-hook
 
-  # コマンド実行後・次のプロンプト表示の直前に毎回呼ばれる
+  # コマンド実行後・次のプロンプト表示の直前に毎回呼ばれる。
+  # ここでは直前コマンドの終了(D)のみ出力する。プロンプト開始(A)は precmd で出すと
+  # 「これから描くプロンプト行」に Output ゾーンが食い込むため、PS1 の先頭に置く（下記）。
   __wezterm_osc133_precmd() {
     local exit_code=$?
     print -n "\e]133;D;${exit_code}\a"   # 直前コマンドの終了（終了コード付き）
-    print -n "\e]133;A\a"                # 次のプロンプトの開始
   }
   # Enter押下後・コマンド実行の直前に呼ばれる
   __wezterm_osc133_preexec() {
@@ -77,8 +78,10 @@ if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
   add-zsh-hook precmd  __wezterm_osc133_precmd
   add-zsh-hook preexec __wezterm_osc133_preexec
 
-  # プロンプト末尾に B（入力開始）マーカーを付与する。
+  # A（プロンプト開始）を PS1 先頭、B（入力開始）を PS1 末尾に付与する。
+  # これにより Prompt ゾーンの範囲が明確になり、Output ゾーンが次プロンプト行へ食い込まない。
   # %{ %} は「表示幅ゼロの制御文字」であることを zsh に伝える囲み（折返し計算用）。
+  __wezterm_osc133_a=$'\e]133;A\a'
   __wezterm_osc133_b=$'\e]133;B\a'
-  PS1="${PS1}%{${__wezterm_osc133_b}%}"
+  PS1="%{${__wezterm_osc133_a}%}${PS1}%{${__wezterm_osc133_b}%}"
 fi
