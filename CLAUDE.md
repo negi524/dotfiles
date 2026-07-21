@@ -157,7 +157,6 @@ git config --global alias.df diff
 - 最近の変更にはchezmoi移行、Claude Skillsの外部リポジトリ化が含まれる
 
 ### 既知の制限事項
-- Flutter SDKはインストールされているが、現在シェル設定で無効化されている
 - Gitエイリアスはdotfilesで管理されておらず、手動セットアップが必要
 - `etc/`ディレクトリの古いセットアップスクリプト（init, setup）はchezmoi移行後は主に使用していない
 - `bin/`ディレクトリはchezmoiの管理外（`.chezmoiignore`に含まれる）
