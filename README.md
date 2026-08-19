@@ -10,6 +10,9 @@ macOS開発環境を[chezmoi](https://www.chezmoi.io/)で管理
 
 ## 初期設定
 
+[Homebrew](https://brew.sh/ja/)をインストール
+
+
 chezmoiをインストール
 
 ```bash
@@ -25,27 +28,6 @@ chezmoi init git@github.com:negi524/dotfiles.git
 設定を適用
 
 ```bash
-chezmoi apply
-```
-
-## Homebrewの設定
-
-Homebrewをインストールし、brewコマンドが利用可能な状態にしておく。
-
-### Homebrewによりインストールされたパッケージを保存
-
-```bash
-brew bundle dump --global --force
-```
-
-※ `~/.Brewfile` に保存される
-※VSCodeの拡張機能は`--no-vscode`オプションで管理対象外
-
-chezmoiソースディレクトリの`dot_Brewfile`に反映
-
-```bash
-cd ~/.local/share/chezmoi
-cp ~/.Brewfile dot_Brewfile
 chezmoi apply
 ```
 
