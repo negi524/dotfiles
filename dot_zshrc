@@ -27,7 +27,7 @@ eval "$(mise activate zsh)"
 eval "$(uv generate-shell-completion zsh)"
 
 # git-promptの設定
-source ~/.git-prompt.sh
+source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
 
 # ファイル変更の状態を可視化
 GIT_PS1_SHOWDIRTYSTATE=true

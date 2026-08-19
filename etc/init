@@ -43,18 +43,6 @@ function download_zsh_plugin_manager() {
   fi
 }
 
-# プロンプトにgitの情報を出力するためのスクリプトをダウンロード
-function download_git_prompt() {
-  local GIT_PROMPT_FILE="${HOME}/.git-prompt.sh"
-
-  if [ ! -f ${GIT_PROMPT_FILE} ]; then
-    log "install git-prompt"
-    curl -sL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ${HOME}/.git-prompt.sh
-  else
-    log "git-prompt is already installed."
-  fi
-}
-
 function fzf_install() {
   # fzfコマンドのインストール
   if !(type fzf > /dev/null 2>&1); then
@@ -72,9 +60,6 @@ function main () {
 
   # zshのプラグインマネージャーをインストールする
   download_zsh_plugin_manager
-
-  # git-promptをインストールする
-  download_git_prompt
 
   # vimのカラースキームをダウンロード
   # TODO: 削除
