@@ -43,15 +43,6 @@ function download_zsh_plugin_manager() {
   fi
 }
 
-function fzf_install() {
-  # fzfコマンドのインストール
-  if !(type fzf > /dev/null 2>&1); then
-    log "install fzf"
-    git clone --depth 1 https://github.com/junegunn/fzf.git ${HOME}/.fzf
-    ${HOME}/.fzf/install
-  fi
-}
-
 # main関数
 # インストールなどの初期設定のみを行う
 function main () {
@@ -68,9 +59,6 @@ function main () {
   # Neovimのカラースキームをインストール
   # TODO: 削除
   # download_nvim_color
-
-  # fzfのインストール
-  fzf_install
 }
 
 main

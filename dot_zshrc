@@ -40,7 +40,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 setopt PROMPT_SUBST ; PS1='%F{#9980A1}[%T]%f %F{#90C9C1}%(3~|.../%2~|%~)%f %F{#E9C071}$(__git_ps1 "(%s)")%f%# '
 
 # fzfの設定
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+command -v fzf > /dev/null && source <(fzf --zsh)
 
 # zplugによるプラグイン管理
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
